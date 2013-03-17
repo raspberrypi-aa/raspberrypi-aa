@@ -12,8 +12,8 @@ class Toolbox:
         with open('/proc/cpuinfo', 'r') as f:
             for line in f:
                 if 'Revision' in line:
-                    rev = line.split(':')
-                    print rev[1].strip()
+                    rev = line.split(':')[1].strip()
+                    print rev
                 
 
 
