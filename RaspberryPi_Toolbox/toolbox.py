@@ -13,7 +13,7 @@ class Toolbox:
             for line in f:
                 if 'Revision' in line:
                     rev = line.split(':')
-                    print rev
+                    print rev[1].strip()
                 
 
 
