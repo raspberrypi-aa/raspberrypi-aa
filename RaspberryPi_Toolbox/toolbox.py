@@ -5,6 +5,8 @@
 
 class Toolbox:
     '''Set of utilities to exercise the power of the Raspberry Pi'''
+    def __init__():
+        pass
     
     def get_revision(self):
         with open('/proc/cpuinfo', 'r') as f:
@@ -12,3 +14,7 @@ class Toolbox:
                 print line
                 
 
+
+if __name__ == '__main__':
+    t = Toolbox
+    t.get_revision()
