@@ -11,7 +11,8 @@ class Toolbox:
     def get_revision(self):
         with open('/proc/cpuinfo', 'r') as f:
             for line in f:
-                print line
+                if 'Revision' in line:
+                    print line
                 
 
 
