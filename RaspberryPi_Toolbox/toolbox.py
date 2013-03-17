@@ -5,7 +5,7 @@
 
 class Toolbox:
     '''Set of utilities to exercise the power of the Raspberry Pi'''
-    def __init__():
+    def __init__(self):
         pass
     
     def get_revision(self):
