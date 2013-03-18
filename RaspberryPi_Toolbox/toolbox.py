@@ -55,12 +55,12 @@ if __name__ == '__main__':
     
     # LED Blink
     try:
-    for i in range(0, 100):
-        # Uses BCM numbering
-        t.gpio_setup_output(11, "out")
-        t.gpio_set_output(11, 1)
-        time.sleep(.5)
-        t.gpio_set_output(11, 0)
-        time.sleep(.5)
+        for i in range(0, 100):
+            # Uses BCM numbering
+            t.gpio_setup_output(11, "out")
+            t.gpio_set_output(11, 1)
+            time.sleep(.5)
+            t.gpio_set_output(11, 0)
+            time.sleep(.5)
     finally:
         t.gpio_cleanup(11)
