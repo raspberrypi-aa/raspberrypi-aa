@@ -33,20 +33,12 @@ class Toolbox:
                 
  
     def gpio_setup_output(self, pin, output):
-        mode = "in"
-        if output:
-            mode = "out"
-                
         with open("/sys/class/gpio/export") as f:
             f.write(pin)
         with open("/sys/class/gpio%d/direction" % pin) as f:
-            f.write("out")
+            f.write(output)
     
-    def gpio_set_output(self, pin, high):
-        val = 0
-        if high:
-            val = 1
-            
+    def gpio_set_output(self, pin, val):
         with open("/sys/class/gpio%d/value" % pin) as f:
             f.write(val)    
 
@@ -56,6 +48,5 @@ if __name__ == '__main__':
     print ', '.join(t.get_revision())
     
     # Uses BCM numbering
-    t.gpio_set_output(11)
-    t.gpio_set_output_high(11)
-    t.
+    t.gpio_setup_output(11, "out")
+    t.gpio_set_output(11, 1)
