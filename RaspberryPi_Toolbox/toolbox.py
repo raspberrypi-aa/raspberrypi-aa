@@ -2,6 +2,7 @@
 #
 #
 #
+import time
 
 class UnknownRevision(Exception):
     pass
