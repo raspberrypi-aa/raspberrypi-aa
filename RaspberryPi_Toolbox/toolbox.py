@@ -47,6 +47,11 @@ if __name__ == '__main__':
     t = Toolbox()
     print ', '.join(t.get_revision())
     
-    # Uses BCM numbering
-    t.gpio_setup_output(11, "out")
-    t.gpio_set_output(11, 1)
+    # LED Blink
+    for i in range(0, 100):
+        # Uses BCM numbering
+        t.gpio_setup_output(11, "out")
+        t.gpio_set_output(11, 1)
+        time.sleep(.5)
+        t.gpio_set_output(11, 0)
+        time.sleep(.5)
