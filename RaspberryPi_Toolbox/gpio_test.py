@@ -5,7 +5,7 @@ if 1:
     # Blink an LED
     pin = 12
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(pin, GPIO.OUT)
     while True:
         GPIO.output(pin, GPIO.LOW)
         time.sleep(.5)
