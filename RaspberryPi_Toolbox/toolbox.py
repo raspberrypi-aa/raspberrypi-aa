@@ -20,6 +20,7 @@ class Toolbox:
                     #print rev
                     # Data from: http://raspberryalphaomega.org.uk/?p=428
                     if rev == '0002':
+                        return ('Model B', 'Revision 1.0', '256MB')
                     elif rev == '0003':
                         return ('Model B', 'Revision 1.0+', '256MB')
                     elif rev == '0004' or rev == '0005' or rev == '0006':
