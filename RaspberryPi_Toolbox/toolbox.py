@@ -18,8 +18,10 @@ class Toolbox:
                 if 'Revision' in line:
                     rev = line.split(':')[1].strip()
                     #print rev
-                    if rev == '0002' or rev == '0003':
-                        return ('Model B', 'Revision 1.0', '256MB')
+                    # Data from: http://raspberryalphaomega.org.uk/?p=428
+                    if rev == '0002'
+                    elif rev == '0003':
+                        return ('Model B', 'Revision 1.0+', '256MB')
                     elif rev == '0004' or rev == '0005' or rev == '0006':
                         return ('Model B', 'Revision 2.0', '256MB')
                     elif rev == '0007' or rev == '0008' or rev == '0009':
@@ -29,6 +31,7 @@ class Toolbox:
                     else:
                         raise UnknownRevision('Revision is: ' + rev)
                 
+ 
 
 
 if __name__ == '__main__':
