@@ -33,4 +33,4 @@ class Toolbox:
 
 if __name__ == '__main__':
     t = Toolbox()
-    t.get_revision()
+    print t.get_revision()
