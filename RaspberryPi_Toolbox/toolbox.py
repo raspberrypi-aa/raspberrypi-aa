@@ -41,7 +41,7 @@ class Toolbox:
     
     def gpio_set_output(self, pin, val):
         with open("/sys/class/gpio%d/value" % pin, 'w') as f:
-            f.write(val)    
+            f.write(str(val))    
 
 
 if __name__ == '__main__':
