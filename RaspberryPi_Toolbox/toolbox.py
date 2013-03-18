@@ -44,7 +44,7 @@ class Toolbox:
         with open("/sys/class/gpio/gpio%d/value" % pin, 'w') as f:
             f.write(str(val))    
 
-    def gpio_cleanup(self, pin)
+    def gpio_cleanup(self, pin):
         with open("/sys/class/gpio/unexport", 'w') as f:
                 f.write(str(pin))
     
