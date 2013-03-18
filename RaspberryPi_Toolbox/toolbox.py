@@ -34,8 +34,8 @@ class Toolbox:
                 
  
     def gpio_setup_output(self, pin, output):
-        with open("/sys/class/gpio/export", 'w') as f:
-            f.write(str(pin))
+        #with open("/sys/class/gpio/export", 'w') as f:
+        #    f.write(str(pin))
         with open("/sys/class/gpio/gpio%d/direction" % pin, 'w') as f:
             f.write(output)
     
