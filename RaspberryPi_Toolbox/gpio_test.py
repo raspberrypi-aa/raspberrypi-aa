@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-if 0:
+if 1:
     # Blink an LED
     pin = 12
     GPIO.setmode(GPIO.BOARD)
