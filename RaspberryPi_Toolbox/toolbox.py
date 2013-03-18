@@ -32,6 +32,19 @@ class Toolbox:
                         raise UnknownRevision('Revision is: ' + rev)
                 
  
+    def gpio_set_output(self, pin):
+        with open("/sys/class/gpio/export") as f:
+            f.write(pin)
+        with open("/sys/class/gpio%d/direction" % pin) as f:
+            f.write("out")
+    
+    def gpio_set_output_high(self, pin):
+        with open("/sys/class/gpio%d/value" % pin) as f:
+            f.write(1)    
+    
+    def gpio_set_output_low(self, pin):
+        with open("/sys/class/gpio%d/value" % pin) as f:
+            f.write(0) 
 
 
 if __name__ == '__main__':
