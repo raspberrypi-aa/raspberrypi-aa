@@ -35,8 +35,8 @@ class Toolbox:
                 
  
     def gpio_setup_output(self, pin, output):
-        #with open("/sys/class/gpio/export", 'w') as f:
-        #    f.write(str(pin))
+        with open("/sys/class/gpio/export", 'w') as f:
+            f.write(str(pin))
         with open("/sys/class/gpio/gpio%d/direction" % pin, 'w') as f:
             f.write(output)
     
@@ -44,12 +44,17 @@ class Toolbox:
         with open("/sys/class/gpio/gpio%d/value" % pin, 'w') as f:
             f.write(str(val))    
 
+    def gpio_cleanup(self, pin)
+        with open("/sys/class/gpio/unexport", 'w') as f:
+                f.write(str(pin))
+    
 
 if __name__ == '__main__':
     t = Toolbox()
     print ', '.join(t.get_revision())
     
     # LED Blink
+    try:
     for i in range(0, 100):
         # Uses BCM numbering
         t.gpio_setup_output(11, "out")
@@ -57,3 +62,5 @@ if __name__ == '__main__':
         time.sleep(.5)
         t.gpio_set_output(11, 0)
         time.sleep(.5)
+    finally:
+        t.gpio_cleanup(11)
