@@ -7,8 +7,10 @@ if 1:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     while True:
-        GPIO.output(pin, GPIO.LOW)
+        print "On"
+        GPIO.output(pin, GPIO.HIGH)
         time.sleep(.5)
+        print "Off"
         GPIO.output(pin, GPIO.LOW)
         time.sleep(.5)
     
