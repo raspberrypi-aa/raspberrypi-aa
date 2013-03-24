@@ -4,7 +4,7 @@ import time
 if 1:
     # Blink an LED
     pin = 18
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     while True:
         GPIO.output(pin, GPIO.LOW)
