@@ -2,8 +2,14 @@ import RPi.GPIO as GPIO
 import time
     
 if 1:
+    input_pin = 4 
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(4, GPIO.IN)  
+    GPIO.setup(input_pin, GPIO.IN)  
+    while True:
+        input_val = GPIO.input(input_pin)
+        print "value: "+input_val
+        time.sleep(.5)
+        
     
 # Blink an LED
 if 1:
