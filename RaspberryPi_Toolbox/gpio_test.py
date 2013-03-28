@@ -33,7 +33,7 @@ if 1:
     while True:
         if GPIO.event_detected(input_pin):
             print True
-        else
+        else:
             print False
         time.sleep(.5)
     
