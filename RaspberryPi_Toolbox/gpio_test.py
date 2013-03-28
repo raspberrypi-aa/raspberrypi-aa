@@ -7,7 +7,7 @@ if 1:
     GPIO.setup(input_pin, GPIO.IN)  
     while True:
         input_val = GPIO.input(input_pin)
-        print "value: "+input_val
+        print "value: "+str(input_val)
         time.sleep(.5)
         
     
