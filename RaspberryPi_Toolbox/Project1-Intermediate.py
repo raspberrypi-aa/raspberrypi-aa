@@ -27,6 +27,12 @@ for pin in switchPin:
 
 print "Starting Simon Says"
 seqLength = 1;
+timeout = 10; # User must complete pattern in 10 seconds or its Game Over
 seq = [random() for i in range(0, seqLength)]
 print "Correct sequence is "+seq
+for pin in seq: 
+    GPIO.output(pin, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(pin, GPIO.LOW)
+
     
