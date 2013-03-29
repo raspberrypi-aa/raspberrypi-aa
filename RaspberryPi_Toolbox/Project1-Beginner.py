@@ -35,11 +35,13 @@ while True:
     while GPIO.input(switchPin) == 1:
         pass
     start_time = time.time()
+    print "Started Timer"
     while GPIO.input(switchPin) == 0:
         pass
     while GPIO.input(switchPin) == 1:
         pass
     end_time = time.time()
+    print "Stopped Timer"
     print "Time: " + str(end_time - start_time)
     
         
