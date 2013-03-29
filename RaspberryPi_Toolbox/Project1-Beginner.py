@@ -7,6 +7,9 @@
 #
 # LED on Pin 18
 # Switch w/ pull resistor on pin 4
+#########
+#XXX_EF Hide a line and ask student to fill it in?
+##########
 import RPi.GPIO as GPIO
 import time
 
