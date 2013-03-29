@@ -7,6 +7,9 @@
 # LED on Pin 14, 15, 18
 # Switch w/ pull up resistor on pin 4, 17, 21
 
+######
+#XXX_EF Provide functions to student and tell them the order to write the code in
+######
 
 import RPi.GPIO
 import time
@@ -25,14 +28,16 @@ for pin in switchPin:
     GPIO.setup(pin, GPIO.IN)
 
 
+def blinkSeq(seq):
+    print "Correct sequence is "+seq
+    for pin in seq: 
+        GPIO.output(pin, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(pin, GPIO.LOW)
+
 print "Starting Simon Says"
 seqLength = 1;
 timeout = 10; # User must complete pattern in 10 seconds or its Game Over
 seq = [random() for i in range(0, seqLength)]
-print "Correct sequence is "+seq
-for pin in seq: 
-    GPIO.output(pin, GPIO.HIGH)
-    time.sleep(1)
-    GPIO.output(pin, GPIO.LOW)
-
+blinkSeq(seq)
     
