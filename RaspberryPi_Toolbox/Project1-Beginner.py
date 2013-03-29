@@ -17,13 +17,14 @@ switchPin = 4
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.output(ledPin, GPIO.LOW)
-while True:
-    GPIO.output(ledPin, GPIO.HIGH)
-    time.sleep(1)
-    GPIO.output(ledPin, GPIO.LOW)
-    time.sleep(4)
-    
-    
+
+if 0:
+    while True:
+        GPIO.output(ledPin, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(ledPin, GPIO.LOW)
+        time.sleep(4)
+        
 GPIO.setup(switchPin, GPIO.IN)
 while True:
     while GPIO.input(switchPin) == 1:
