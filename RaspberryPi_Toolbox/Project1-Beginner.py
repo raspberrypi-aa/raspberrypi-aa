@@ -13,8 +13,10 @@ import time
 ledPin = 18
 switchPin = 4
     
-    
+# Set to board numbering    
 GPIO.setmode(GPIO.BCM)
+
+# Configure LED Pin for output, initialized to off (LOW) state
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.output(ledPin, GPIO.LOW)
 
