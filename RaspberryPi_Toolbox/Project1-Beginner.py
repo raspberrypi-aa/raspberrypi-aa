@@ -43,7 +43,8 @@ while True:
     end_time = time.time()
     print "Stopped Timer"
     print "Time: " + str(end_time - start_time)
-    
+    while GPIO.input(switchPin) == 0:
+        pass
         
     
     
