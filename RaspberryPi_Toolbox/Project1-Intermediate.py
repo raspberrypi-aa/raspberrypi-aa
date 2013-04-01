@@ -19,6 +19,11 @@ ledPin = [14, 15, 18]
 switchPin = [4, 17, 21]
 
 
+def wait_for_input(pin, state):
+    while GPIO.input(pin) != state:
+        time.sleep(.02)
+    
+
 GPIO.setmode(GPIO.BCM)
 for pin in ledPin:
     GPIO.setup(pin, GPIO.OUT)
@@ -40,4 +45,5 @@ seqLength = 1;
 timeout = 10; # User must complete pattern in 10 seconds or its Game Over
 seq = [random() for i in range(0, seqLength)]
 blinkSeq(seq)
+checkSequence(seq)
     
