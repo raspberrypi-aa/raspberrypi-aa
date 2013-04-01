@@ -11,10 +11,9 @@
 #XXX_EF Provide functions to student and tell them the order to write the code in
 ######
 
-import RPi.GPIO
+import RPi.GPIO as GPIO
 import time
 import random
-from operater import itemgetter
 
 ledPin = [14, 15, 18]
 switchPin = [4, 17, 21]
