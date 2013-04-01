@@ -6,6 +6,9 @@
 #
 # LED on Pin 18
 # Switch w/ pull up resistor on pin 4
+#
+# Extra: Report running average
+#
 
 
 import RPi.GPIO as GPIO
@@ -15,8 +18,11 @@ import random
 ledPin = 18
 switchPin = 4
 
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(switchPin, GPIO.IN)
+
+rtimes = []
 
 while True:
     print "Starting soon..."
@@ -31,10 +37,14 @@ while True:
     end_time = time.time()
     GPIO.output(ledPin, GPIO.LOW)
     
-    print "Reaction Time: " + str(end_time - start_time)
+    reaction_time = end_time - start_time
+    print "Reaction Time: " + str(reaction_time)
+    rtimes.append(reaction_time)
+    print "Average Time: " + str(1.0*sum(rtimes)/len(rtimes))
     time.sleep(5)
     
     
+
     
     
 
