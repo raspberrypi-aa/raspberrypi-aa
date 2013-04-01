@@ -33,14 +33,14 @@ if 0:
 GPIO.setup(switchPin, GPIO.IN)
 while True:
     while GPIO.input(switchPin) == 1:
-        pass
+        time.sleep(.02)
     start_time = time.time()
     print "Started Timer"
     GPIO.output(ledPin, GPIO.HIGH)
     while GPIO.input(switchPin) == 0:
-        pass
+        time.sleep(.02)
     while GPIO.input(switchPin) == 1:
-        pass
+        time.sleep(.02)
     GPIO.output(ledPin, GPIO.LOW)
     end_time = time.time()
     print "Stopped Timer"
