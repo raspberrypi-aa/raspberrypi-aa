@@ -20,9 +20,36 @@ switchPin = [4, 17, 21]
 
 
 def wait_for_input(pin, state):
+    'Sit in while loop until pin state changes. Sleep to avoid hogging CPU'
     while GPIO.input(pin) != state:
         time.sleep(.02)
+        
+def get_next_pin_low(pinList, timeout):
+    '''Sit in while loop until any pin in pinList goes low. If no pin pressed
+    before timeout, return false. Return number of pin pressed'''
+    start_time = time.time()
+    while start_time + timeout < time.time():
+        for pin in pinList:
+            if GPIO.input(pin) == 0:
+                return pin
+            time.sleep(.05)
+    return False
     
+
+def checkSeq(seq, timeout):
+    '''Wait for user to enter the sequence. Return true if correct. Return
+    false if wrong pin pressed or timeout reached'''
+    
+
+
+def blinkSeq(seq):
+    'Blink LEDs in the correct sequence to teach player the pattern.'
+    print "Correct sequence is "+seq
+    for pin in seq: 
+        GPIO.output(pin, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(pin, GPIO.LOW)
+
 
 GPIO.setmode(GPIO.BCM)
 for pin in ledPin:
@@ -31,14 +58,6 @@ for pin in ledPin:
     
 for pin in switchPin:
     GPIO.setup(pin, GPIO.IN)
-
-
-def blinkSeq(seq):
-    print "Correct sequence is "+seq
-    for pin in seq: 
-        GPIO.output(pin, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(pin, GPIO.LOW)
 
 print "Starting Simon Says"
 seqLength = 1;
