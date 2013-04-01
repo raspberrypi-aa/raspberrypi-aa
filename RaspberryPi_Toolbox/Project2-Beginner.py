@@ -15,10 +15,8 @@ import random
 ledPin = 18
 switchPin = 4
 
-GPIO.setup(ledPin, RPIO.OUT)
-GPIO.setup(switchPin, RPIO.IN)
-
-def 
+GPIO.setup(ledPin, GPIO.OUT)
+GPIO.setup(switchPin, GPIO.IN)
 
 while True:
     print "Starting soon..."
@@ -33,7 +31,7 @@ while True:
     end_time = time.time()
     GPIO.output(ledPin, GPIO.LOW)
     
-    print "Reaction Time: " str(end_time - start_time)
+    print "Reaction Time: " + str(end_time - start_time)
     time.sleep(5)
     
     
