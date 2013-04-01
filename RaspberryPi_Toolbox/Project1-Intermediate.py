@@ -14,16 +14,20 @@
 import RPi.GPIO
 import time
 import random
+from operater import itemgetter
 
 ledPin = [14, 15, 18]
 switchPin = [4, 17, 21]
 
 def genSeq(length):
-    '''Generate a sequence (ledPin, switchPin) of given length'''
-    retList = []
+    '''Generate a tuple of sequences ([ledPins], [switchPins]) of given length'''
+    ledPins = []
+    switchPins = []
     for x in xrange(0, length):
         r = r.randomInt(0, len(ledPin))
-        retList.append((ledPin[r], switchPin[r]))
+        ledPins.append(ledPin[r])
+        switchPins.append(switchPin[r])
+    return (ledPins, switchPins)
 
 def get_next_pin_low(pinList, timeout):
     '''Sit in while loop until any pin in pinList goes low. If no pin pressed
@@ -41,7 +45,9 @@ def checkSeq(seq, timeout):
     '''Wait for user to enter the sequence. Return true if correct. Return
     false if wrong pin pressed or timeout reached'''
     for step in seq:
-        
+        if get_next_pin_low(switchPin, timeout) != step
+            return False
+    return True
     
 
 def blinkSeq(seq):
@@ -66,6 +72,8 @@ if __name__ == '__main__':
     seqLength = 1;
     timeout = 10; # User must complete pattern in 10 seconds or its Game Over
     curSeq = genSeq(seqLength)
-    blinkSeq(ledSeq)
-    checkSequence(seq)
-    
+    blinkSeq(curSeq[0])
+    if checkSequence(curSeq[1]):
+        print "Correct!"
+    else:
+        print "Wrong!"
