@@ -65,7 +65,7 @@ if __name__ == '__main__':
         GPIO.output(pin, GPIO.LOW)
         
     for pin in switchPin:
-        GPIO.setup(pin, GPIO.IN)
+        GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     
     print "Starting Simon Says"
     seqLength = 1;
