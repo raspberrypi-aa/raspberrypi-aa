@@ -5,7 +5,7 @@
 # Simon Says
 #
 # LED on Pin 14, 15, 18
-# Switch w/ internal pull up resistor on pin 4, 17, 21
+# Switches w/ internal pull up resistor on pin 4, 17, 21
 
 ######
 #XXX_EF Provide functions to student and tell them the order to write the code in
