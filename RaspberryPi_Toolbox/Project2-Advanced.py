@@ -1,4 +1,4 @@
 #!/usr/bin/env python
 #
-# Project 2 Advanced - Interrupt Benchmarking
+# Project 2 Advanced - Frequency Counter
 # 
