@@ -7,9 +7,6 @@
 #
 # LED on Pin 18
 # Switch w/ pull resistor on pin 4
-#########
-#XXX_EF Hide a line and ask student to fill it in?
-##########
 import RPi.GPIO as GPIO
 import time
 
@@ -23,13 +20,21 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.output(ledPin, GPIO.LOW)
 
-if 0:
+#####
+# LED BLink
+#####
+if 1:
     while True:
         GPIO.output(ledPin, GPIO.HIGH)
         time.sleep(1)
         GPIO.output(ledPin, GPIO.LOW)
         time.sleep(4)
-        
+    
+    
+#####
+# Stopwatch
+# - Chang above if statement to 'if 0:' to use this code
+#####
 GPIO.setup(switchPin, GPIO.IN)
 while True:
     while GPIO.input(switchPin) == 1:
