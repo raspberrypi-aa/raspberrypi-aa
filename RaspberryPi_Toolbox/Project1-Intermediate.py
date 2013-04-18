@@ -30,13 +30,10 @@ def get_next_pin_low(pinList, timeout):
     the input state of each switch Pin, returning the pin number if it is 
     pressed (Low). Sleep for 5ms between checking each pin to avoid using
     up all the CPU time'''
-    start_time = time.time()
-    while start_time + timeout < time.time():
-        for pin in pinList:
-            if GPIO.input(pin) == 0:
-                return pin
-            time.sleep(.05)
-    return False
+    #
+    # IMPLEMENT THIS FUNCTION
+    #
+
     
 
 def checkSeq(seq, timeout):
@@ -51,22 +48,16 @@ def checkSeq(seq, timeout):
 def blinkSeq(seq):
     'Blink LEDs in the correct sequence to teach player the pattern.'
     print "Correct sequence is "+seq
-    for pin in seq: 
-        GPIO.output(pin, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(pin, GPIO.LOW)
-
+    #
+    # IMPLEMENT THIS FUNCTION
+    #
 
 def setup():
     '''Set to mode to BCM. Set each ledPin to output and state LOW. 
     Setup each input pin, configuring the Pull Up resistor if using'''
-    GPIO.setmode(GPIO.BCM)
-    for pin in ledPin:
-        GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, GPIO.LOW)
-        
-    for pin in switchPin:
-        GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    #
+    # IMPLEMENT THIS FUNCTION
+    #
 
 if __name__ == '__main__':
 
