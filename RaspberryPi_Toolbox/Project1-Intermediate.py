@@ -57,7 +57,9 @@ def blinkSeq(seq):
         GPIO.output(pin, GPIO.LOW)
 
 
-if __name__ == '__main__':
+def setup():
+    '''Set to mode to BCM. Set each ledPin to output and state LOW. 
+    Setup each input pin, configuring the Pull Up resistor if using'''
     GPIO.setmode(GPIO.BCM)
     for pin in ledPin:
         GPIO.setup(pin, GPIO.OUT)
@@ -65,6 +67,10 @@ if __name__ == '__main__':
         
     for pin in switchPin:
         GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+if __name__ == '__main__':
+
+    setup()
     
     print "Starting Simon Says"
     seqLength = 1;
