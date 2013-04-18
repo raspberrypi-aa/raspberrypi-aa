@@ -2,7 +2,7 @@
 #
 # Artisan's Asylum - Introduction to Raspberry Pi
 # Project 1 - Intermediate
-# Simon Says
+# Simon 
 #
 # LED on Pin 14, 15, 18
 # Switches w/ internal pull up resistor on pin 4, 17, 21
