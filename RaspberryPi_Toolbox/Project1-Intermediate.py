@@ -7,9 +7,6 @@
 # LED on Pin 14, 15, 18
 # Switches w/ internal pull up resistor on pin 4, 17, 21
 
-######
-#XXX_EF Provide functions to student and tell them the order to write the code in
-######
 
 import RPi.GPIO as GPIO
 import time
@@ -29,8 +26,10 @@ def genSeq(length):
     return (ledPins, switchPins)
 
 def get_next_pin_low(pinList, timeout):
-    '''Sit in while loop until any pin in pinList goes low. If no pin pressed
-    before timeout, return false. Return number of pin pressed'''
+    '''Sit in while loop until timeout is reached. Use a for loop to check 
+    the input state of each switch Pin, returning the pin number if it is 
+    pressed (Low). Sleep for 5ms between checking each pin to avoid using
+    up all the CPU time'''
     start_time = time.time()
     while start_time + timeout < time.time():
         for pin in pinList:
