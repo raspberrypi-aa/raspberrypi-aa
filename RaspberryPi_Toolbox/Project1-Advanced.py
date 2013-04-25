@@ -5,6 +5,7 @@
 #    Use a 74HC595 shift register to implement an R-2R DAC
 #
 
+import RPi.GPIO as GPIO
 
 clkPin = 4
 dataPin = 18
