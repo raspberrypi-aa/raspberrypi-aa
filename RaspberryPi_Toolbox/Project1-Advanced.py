@@ -40,7 +40,7 @@ def writeShiftReg(regContents, clkPin, dataPin, latchPin):
 
 
 GPIO.setmode(GPIO.BCM)
-regContents[0] = GPIO.LOW
+regContents[8] = GPIO.LOW
 setupShiftReg(clkPin, dataPin, latchPin)
 writeShiftReg(regContents, clkPin, dataPin, latchPin)
 
