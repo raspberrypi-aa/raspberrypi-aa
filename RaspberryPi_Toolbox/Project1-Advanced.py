@@ -27,6 +27,8 @@ def writeShiftReg(regContents, clkPin, dataPin, latchPin):
     '''clkPin=>SRCLK
        dataPin=>SET
        latchPin=>RCLK
+       
+       This function prints least significant bit first (i.e. r[7] first)
     '''
     GPIO.output(latchPin, GPIO.LOW)
     
