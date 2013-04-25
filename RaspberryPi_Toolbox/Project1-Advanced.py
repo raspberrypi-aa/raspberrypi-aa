@@ -4,6 +4,15 @@
 # Project 1 - Advanced
 #    Use a 74HC595 shift register to implement an R-2R DAC
 #
+# Connections:
+#   74HC595
+#      Pin 8 - GND
+#      Pin 10 - Serial Clear - Tie to GND (could add GPIO pin and set to high to reset)
+#      Pin 11 - Serial Clk - Rising edge of clock pulse shifts new value (from SER pin) in to register
+#      Pin 12 - Register Clk - (i.e. latch pin) Set to low when changing, set back to high for changes to take effect
+#      Pin 13 - Output Enable - Tie to GND
+#      Pin 14 - Serial Data - Rising edge of Serial Clk pulse reads in value of this pin
+#      Pin 16 - Vcc - Tie to 3.3V
 
 import RPi.GPIO as GPIO
 import time
