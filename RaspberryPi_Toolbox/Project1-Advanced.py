@@ -10,7 +10,7 @@ import time
 
 clkPin = 4
 dataPin = 18
-latchPin = 17
+latchPin = 15
 
 regContents = [GPIO.HIGH]*8
 
