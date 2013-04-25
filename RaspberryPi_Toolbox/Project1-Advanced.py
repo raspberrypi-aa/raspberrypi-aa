@@ -6,14 +6,14 @@
 #
 
 
-clkPin = 0
-dataPin = 0
-latchPin = 0
+clkPin = 4
+dataPin = 18
+latchPin = 17
 
 regContents = [GPIO.LOW]*8
 
 def setupShiftReg(srClk, ser, rClk):
-    'crClk = serial clock, ser = serial, rClk = latch clock'
+    'srClk = serial clock, ser = serial, rClk = latch (i.e register) clock'
     GPIO.setup(srClk, GPIO.OUT)
     GPIO.setup(ser, GPIO.OUT)
     GPIO.setup(rClk, GPIO.OUT)
