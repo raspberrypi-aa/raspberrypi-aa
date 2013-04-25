@@ -24,15 +24,17 @@ def writeShiftReg(regContents, clkPin, dataPin, latchPin):
        latchPin=>RCLK
     '''
     GPIO.output(latchPin, GPIO.LOW)
+    
     for r in regContents:
         
         GPIO.output(clkPin, GPIO.LOW)
         GPIO.output(dataPin, r)
         GPIO.output(clkPin, GPIO.HIGH)
-        GPIO.output(latchPin, GPIO.HIGH)
-
-
-def setVoltage(val):
     
-    writeShifReg(regContents, clkPin, dataPin, latchPin)
+    GPIO.output(latchPin, GPIO.HIGH)
+
+
+
+regContents[0] = GPIO.HIGH
+writeShifReg(regContents, clkPin, dataPin, latchPin)
     
