@@ -6,6 +6,7 @@
 #
 
 import RPi.GPIO as GPIO
+import time
 
 clkPin = 4
 dataPin = 18
@@ -39,4 +40,7 @@ GPIO.setmode(GPIO.BCM)
 regContents[0] = GPIO.HIGH
 setupShiftReg(clkPin, dataPin, latchPin)
 writeShiftReg(regContents, clkPin, dataPin, latchPin)
+
+while True:
+    time.sleep(1)
     
