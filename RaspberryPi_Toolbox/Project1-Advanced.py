@@ -12,7 +12,7 @@ clkPin = 4
 dataPin = 18
 latchPin = 17
 
-regContents = [GPIO.LOW]*8
+regContents = [GPIO.HIGH]*8
 
 def setupShiftReg(srClk, ser, rClk):
     'srClk = serial clock, ser = serial, rClk = latch (i.e register) clock'
@@ -39,7 +39,8 @@ def writeShiftReg(regContents, clkPin, dataPin, latchPin):
 GPIO.setmode(GPIO.BCM)
 regContents[0] = GPIO.HIGH
 setupShiftReg(clkPin, dataPin, latchPin)
-GPIO.output(dataPin)
+GPIO.output(latchPin, GPIO.HIGH)
+GPIO.output(clkPin, GPIO.LOW)
 #writeShiftReg(regContents, clkPin, dataPin, latchPin)
 
 while True:
