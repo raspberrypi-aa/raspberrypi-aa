@@ -19,6 +19,9 @@ def setupShiftReg(srClk, ser, rClk):
     GPIO.setup(srClk, GPIO.OUT)
     GPIO.setup(ser, GPIO.OUT)
     GPIO.setup(rClk, GPIO.OUT)
+    GPIO.output(srClk, GPIO.LOW)
+    GPIO.output(ser, GPIO.LOW)
+    GPIO.output(rClk, GPIO.LOW)
     
 def writeShiftReg(regContents, clkPin, dataPin, latchPin):
     '''clkPin=>SRCLK
