@@ -28,7 +28,7 @@ def writeShiftReg(regContents, clkPin, dataPin, latchPin):
     GPIO.output(latchPin, GPIO.LOW)
     
     for r in regContents:
-        
+        print r
         GPIO.output(clkPin, GPIO.LOW)
         GPIO.output(dataPin, r)
         GPIO.output(clkPin, GPIO.HIGH)
