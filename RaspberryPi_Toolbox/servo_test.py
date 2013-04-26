@@ -6,6 +6,9 @@
 
 import time
 
+def setServoMode():
+with open("/sys/class/rpi-pwm/pwm0/mode", "w") as f:
+        f.write("servo")    
 
 def toggleServo(enabled): 
     value = "0"
@@ -26,18 +29,18 @@ def setServoPosition(pos):
     with open("/sys/class/rpi-pwm/pwm0/servo", "w") as f:
         f.write(str(duty))
 
-def pwmTest():
-    setPwmFrequency()
-    togglePwm(True)
+def servoTest():
+    setServoMode()
+    toggleServo(True)
     
     while True:
-        for i in range(0, 100, 1):
-            print "Brightness:", i
-            setPwmDutyCycle(i)
+        for i in range(0, 180, 1):
+            print "Servo position (degrees): ",i
+            setServoPositionCycle(i)
             time.sleep(.01)
             
-    togglePwm(False)
+    toggleServo(False)
     
 if __name__ == "__main__":
-    pwmTest()
+    servoTest()
     
