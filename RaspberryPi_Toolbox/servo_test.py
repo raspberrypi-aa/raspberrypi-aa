@@ -37,7 +37,7 @@ def servoTest():
         for i in range(0, 32, 1):
             print "Servo position (degrees): ",i
             setServoPosition(i)
-            time.sleep(.01)
+            time.sleep(.2)
             
     toggleServo(False)
     
