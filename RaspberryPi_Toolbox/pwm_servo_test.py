@@ -4,6 +4,7 @@
 # 
 # MUST use pin 18
 
+import time
 
 
 def togglePwm(enabled): 
@@ -23,5 +24,17 @@ def setPwmDutyCycle(duty)
     with open("/sys/class/rpi-pwm/pwm0/frequency", "w") as f:
         f.write(str(duty))
 
-def Test():
+def pwmTest():
+    togglePwm(True)
+    
+    while True:
+        for i in range(0, 100, 10):
+            print "Brightness:", i
+            setPwmDutyCycle(i)
+            time.sleep(100)
+            
+    togglePwm(False)
+    
+if __name__ == "__main__":
+    pwmTest()
     
