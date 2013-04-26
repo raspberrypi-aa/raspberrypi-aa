@@ -27,7 +27,7 @@ def setPwmDutyCycle(duty):
     elif duty > 100:
         duty = 100
             
-    with open("/sys/class/rpi-pwm/pwm0/frequency", "w") as f:
+    with open("/sys/class/rpi-pwm/pwm0/duty", "w") as f:
         f.write(str(duty))
 
 def pwmTest():
