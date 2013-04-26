@@ -34,7 +34,7 @@ def servoTest():
     toggleServo(True)
     
     while True:
-        for i in range(0, 180, 1):
+        for i in range(0, 32, 1):
             print "Servo position (degrees): ",i
             setServoPosition(i)
             time.sleep(.01)
