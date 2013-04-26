@@ -21,6 +21,7 @@ def setPwmFrequency(freq=1000):
         f.write(str(freq))
     
 
+# Duty cycle can vary between 1-100
 def setPwmDutyCycle(duty):
     if duty <= 0:
         duty = 1
