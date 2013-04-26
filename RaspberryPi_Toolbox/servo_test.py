@@ -6,7 +6,7 @@
 
 import time
 
-def setServoMode():
+def setupServo(max_position):
     with open("/sys/class/rpi-pwm/pwm0/mode", "w") as f:
         f.write("servo")    
 
@@ -30,7 +30,7 @@ def setServoPosition(pos):
         f.write(str(pos))
 
 def servoTest():
-    setServoMode()
+    setupServo(180)
     toggleServo(True)
     
     while True:
