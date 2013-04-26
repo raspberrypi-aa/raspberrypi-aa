@@ -13,7 +13,7 @@ def togglePwm(enabled):
         value = "1"
         
     with open("/sys/class/rpi-pwm/pwm0/active", "w") as f:
-        f.write(str(value))
+        f.write(value)
 
 def setPwmDutyCycle(duty):
     if duty < 0:
