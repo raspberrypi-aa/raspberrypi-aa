@@ -38,7 +38,7 @@ def pwmTest():
         for i in range(0, 100, 1):
             print "Brightness:", i
             setPwmDutyCycle(i)
-            time.sleep(.25)
+            time.sleep(.01)
             
     togglePwm(False)
     
