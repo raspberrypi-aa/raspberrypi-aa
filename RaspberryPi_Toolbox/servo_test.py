@@ -21,13 +21,13 @@ def toggleServo(enabled):
 
 # Duty cycle can vary between 1-180
 def setServoPosition(pos):
-    if duty <= 0:
-        duty = 1
-    elif duty > 180:
-        duty = 180
+    if pos <= 0:
+        pos = 1
+    elif pos > 180:
+        pos = 180
             
     with open("/sys/class/rpi-pwm/pwm0/servo", "w") as f:
-        f.write(str(duty))
+        f.write(str(pos))
 
 def servoTest():
     setServoMode()
