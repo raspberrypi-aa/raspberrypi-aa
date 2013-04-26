@@ -35,11 +35,10 @@ def pwmTest():
     togglePwm(True)
     
     while True:
-        #for i in range(0, 100, 1):
-        #    print "Brightness:", i
-        #    setPwmDutyCycle(i)
-        #    time.sleep(.25)
-        setPwmDutyCycle(10)
+        for i in range(0, 100, 1):
+            print "Brightness:", i
+            setPwmDutyCycle(i)
+            time.sleep(.25)
             
     togglePwm(False)
     
