@@ -7,7 +7,7 @@
 import time
 
 def setServoMode():
-with open("/sys/class/rpi-pwm/pwm0/mode", "w") as f:
+    with open("/sys/class/rpi-pwm/pwm0/mode", "w") as f:
         f.write("servo")    
 
 def toggleServo(enabled): 
