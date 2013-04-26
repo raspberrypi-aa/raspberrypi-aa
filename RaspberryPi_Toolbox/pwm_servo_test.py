@@ -17,6 +17,7 @@ def togglePwm(enabled):
         
 def setPwmFrequency(freq=500):
     with open("/sys/class/rpi-pwm/pwm0/frequency", "w") as f:
+        print str(freq)
         f.write(str(freq))
     
 
