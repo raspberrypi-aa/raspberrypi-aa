@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Demonstrates PWM and Servo control 
+# Demonstrates PWM  control 
 # 
 # MUST use pin 18
 
