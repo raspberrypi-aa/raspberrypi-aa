@@ -23,7 +23,7 @@ def setPwmFrequency(freq=1000):
 
 def setPwmDutyCycle(duty):
     if duty <= 0:
-        duty = 1
+        duty = 0
     elif duty > 100:
         duty = 100
             
