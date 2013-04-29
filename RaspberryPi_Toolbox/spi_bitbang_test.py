@@ -49,7 +49,7 @@ def readAdc(channel=0, clkPin, misoPin, mosiPin, csPin):
     
     sendBits(read_command, 5)
     
-    adcValue = recvBits(10, clkPin, misoPin)
+    adcValue = recvBits(12, clkPin, misoPin)
     
     # Set chip select high to end the read
     GPIO.output(csPin, GPIO.HIGH)
@@ -89,6 +89,7 @@ def recvBits(numBits, clkPin, misoPin):
         # Advance input to next bit
         retVal <<= 1
     
+    # Divide by two to drop the NULL bit
     return (retVal/2)
     
     
