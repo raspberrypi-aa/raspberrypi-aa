@@ -55,6 +55,10 @@ def readAdc(channel=0, clkPin, misoPin, mosiPin, csPin):
     GPIO.output(csPin, GPIO.HIGH)
   
 def sendBits(data, numBits, clkPin, mosiPin):
+    ''' Sends 1 Byte or less of data'''
+    
+    data <<= (8 - numBits)
+    
     for bit in range(numBits):
         # Set RPi's output bit high or low depending on highest bit of data field
         if data & 0x80:
@@ -63,7 +67,7 @@ def sendBits(data, numBits, clkPin, mosiPin):
             GPIO.output(mosiPin, GPIO.LOW)
         
         # Advance data to the next bit
-        data << 1
+        data <<= 1
         
         # Pulse the clock pin HIGH then immediately low
         GPIO.output(clkPin, GPIO.HIGH)
@@ -82,7 +86,7 @@ def recvBits(numBits, clkPin, misoPin):
             retVal |= 0x1
         
         # Advance input to next bit
-        retVal << 1
+        retVal <<= 1
     
     return (retVal/2)
     
