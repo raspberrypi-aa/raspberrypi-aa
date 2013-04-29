@@ -74,6 +74,7 @@ def sendBits(data, numBits, clkPin, mosiPin):
         GPIO.output(clkPin, GPIO.LOW)
 
 def recvBits(numBits, clkPin, misoPin):
+    '''Receives arbitrary number of bits'''
     retVal = 0
     
     for bit in range(numBits):
