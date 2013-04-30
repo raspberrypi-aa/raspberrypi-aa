@@ -42,5 +42,5 @@ if __name__ == '__main__':
             print "ADC Result: ", str(val)
             time.sleep(5)
     except KeyboardInterrupt:
-        spi.close()
+        spi.close()ls 
         sys.exit(0)
