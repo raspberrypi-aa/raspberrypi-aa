@@ -25,7 +25,7 @@ def readAdc(channel):
 if __name__ == '__main__':
     try:
         while True:
-            val = readAdc(0, CLK, MISO, MOSI, CS)
+            val = readAdc(0)
             print "ADC Result: ", str(val)
             time.sleep(5)
     except KeyboardInterrupt:
