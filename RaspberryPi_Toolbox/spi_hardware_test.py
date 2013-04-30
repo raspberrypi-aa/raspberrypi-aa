@@ -6,7 +6,7 @@
 #     CLK => SCLK  
 #     DOUT =>  MISO
 #     DIN => MOSI
-#     CS => CE0 
+#     CS => CE0
 
 import time
 import sys
