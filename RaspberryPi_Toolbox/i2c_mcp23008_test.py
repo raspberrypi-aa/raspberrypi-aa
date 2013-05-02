@@ -6,6 +6,7 @@
 
 import Adafruit_I2C as I2C
 import time
+import sys
 
 #if True:
 #    mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)
@@ -46,8 +47,13 @@ def setPin(pin, state):
         
 
 if __name__ == '__main__':
-    setAllOutput()
-    setPin(1, True)
-    while True:
-        time.sleep(1)
+    try:
+        setAllOutput()
+        print "IODIR"
+        print i2c.readU8(IODIR)
+        setPin(1, True)
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        sys.exit(0)
     
