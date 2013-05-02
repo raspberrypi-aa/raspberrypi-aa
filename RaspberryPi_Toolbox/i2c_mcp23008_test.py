@@ -60,11 +60,11 @@ def setPin(pin, state):
 if __name__ == '__main__':
     try:
         setAllOutput()
-        setPinMode(1, INPUT)
+        setPinMode(1, True)
         
         print "IODIR"
         print i2c.readU8(IODIR)
-        setPin(7, False)
+        setPin(7, False, True)
         print "GPIO"
         print i2c.readU8(GPIO)
         while True:
