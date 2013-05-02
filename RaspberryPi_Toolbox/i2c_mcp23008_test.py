@@ -35,7 +35,7 @@ def setPinMode(pin, input):
     else:
         direction = direction & ~(1<<pin)
         
-    i2c.write(IODIR, direction)
+    i2c.write8(IODIR, direction)
 
 def setPin(pin, state):
     gpio = i2c.readU8(GPIO)
@@ -45,7 +45,7 @@ def setPin(pin, state):
     else:
         gpio = gpio & ~(1<<pin)
         
-    i2c.write(GPIO, gpio)
+    i2c.write8(GPIO, gpio)
         
 
 if __name__ == '__main__':
@@ -53,7 +53,7 @@ if __name__ == '__main__':
         setAllOutput()
         print "IODIR"
         print i2c.readU8(IODIR)
-        setPin(1, True)
+        setPin(7, True)
         print "GPIO"
         print i2c.readU8(GPIO)
         while True:
