@@ -5,6 +5,7 @@
 #
 
 import Adafruit_I2C as I2C
+import time
 
 #if True:
 #    mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)
@@ -36,7 +37,7 @@ def setPinMode(pin, input):
     i2c.write(IODIR, direction)
 
 def setPin(pin, state):
-    gpio = i2c.read(GPIO)
+    gpio = i2c.readU8(GPIO)
     
     if state:
         gpio = gpio | (1 << pin)
@@ -47,4 +48,6 @@ def setPin(pin, state):
 if __name__ == '__main__':
     setAllOutput()
     setPin(1, True)
+    while True:
+        time.sleep(1)
     
