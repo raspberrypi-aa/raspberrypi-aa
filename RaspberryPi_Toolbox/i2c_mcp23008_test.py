@@ -32,7 +32,6 @@ def setPinMode(pin, input, pullup=False):
     
     if input:
         direction |= (1 << pin)
-        pullup = i2c.readU8(GPPU)
         
     else:
         direction = direction & ~(1<<pin)
@@ -40,11 +39,14 @@ def setPinMode(pin, input, pullup=False):
     i2c.write8(IODIR, direction)
     
     if input:
+        puReg = i2c.readU8(GPPU)
+        
        if pullup:
-            pullup = pullup | (1<<pin)
-        else :
-            pullup = pullup & ~(1<<pin)
-        i2c.write8(GPPU, pullup)
+            puReg = puReg | (1<<pin)
+        else:
+            puReg = puReg & ~(1<<pin)
+            
+        i2c.write8(GPPU, puReg)
         print "pullup"
         print i2c.readU8(GPPU)        
 
