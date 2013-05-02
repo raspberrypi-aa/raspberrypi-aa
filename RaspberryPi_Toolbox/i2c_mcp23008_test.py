@@ -75,6 +75,8 @@ if __name__ == '__main__':
         print "GPIO"
         print i2c.readU8(GPIO)
         while True:
+            print "IN" , str(readPin(1))
+            
             time.sleep(1)
     except KeyboardInterrupt:
         sys.exit(0)
