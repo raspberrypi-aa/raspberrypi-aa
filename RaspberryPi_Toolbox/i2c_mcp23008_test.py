@@ -41,7 +41,7 @@ def setPinMode(pin, input, pullup=False):
     if input:
         puReg = i2c.readU8(GPPU)
         
-       if pullup:
+        if pullup:
             puReg = puReg | (1<<pin)
         else:
             puReg = puReg & ~(1<<pin)
@@ -59,7 +59,10 @@ def setPin(pin, state):
         gpio = gpio & ~(1<<pin)
         
     i2c.write8(GPIO, gpio)
-        
+
+def readPin(pin):
+    gpio = i2c.readU8(GPIO)
+    return (gpio >> pin) & 0x01
 
 if __name__ == '__main__':
     try:
