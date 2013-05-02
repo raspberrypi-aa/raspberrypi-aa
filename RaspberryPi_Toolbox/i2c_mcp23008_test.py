@@ -24,7 +24,7 @@ def setAllInput():
 def setAllOutput():
     i2c.write8(IODIR, 0x00)
     
-def setPinMode(pin, input):
+def setPinMode(pin, input, pullup=False):
     '''Pin is the pin number to modify input/output state of.
        Input is True to set the pin as input, False to set it as output'''
     
@@ -32,6 +32,15 @@ def setPinMode(pin, input):
     
     if input:
         direction |= (1 << pin)
+        pullup = i2c.read(GPPU)
+        if pullup:
+            pullup = pullup | (1<<pin)
+        else :
+            pullup = pullup & ~(1<<pin)
+        i2c.write8(GPPU, pullup)
+        print "pullup"
+        print i2c.readU8(GPPU)
+        
     else:
         direction = direction & ~(1<<pin)
         
@@ -51,9 +60,11 @@ def setPin(pin, state):
 if __name__ == '__main__':
     try:
         setAllOutput()
+        setPinMode(1, INPUT)
+        
         print "IODIR"
         print i2c.readU8(IODIR)
-        setPin(7, True)
+        setPin(7, False)
         print "GPIO"
         print i2c.readU8(GPIO)
         while True:
