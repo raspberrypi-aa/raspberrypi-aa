@@ -52,6 +52,8 @@ if __name__ == '__main__':
         print "IODIR"
         print i2c.readU8(IODIR)
         setPin(1, True)
+        print "GPIO"
+        print i2c.readU8(GPIO)
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
