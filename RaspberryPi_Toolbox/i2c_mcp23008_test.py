@@ -44,7 +44,7 @@ def setPin(pin, state):
         gpio = gpio & ~(1<<pin)
         
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     setAllOutput()
     setPin(1, True)
     
