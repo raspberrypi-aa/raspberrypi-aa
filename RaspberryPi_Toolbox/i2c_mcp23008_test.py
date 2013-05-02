@@ -45,6 +45,8 @@ def setPin(pin, state):
     else:
         gpio = gpio & ~(1<<pin)
         
+    i2c.write(GPIO, gpio)
+        
 
 if __name__ == '__main__':
     try:
