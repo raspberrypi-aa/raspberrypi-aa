@@ -4,7 +4,7 @@
 #
 #
 
-import Adafruit_I2C
+import Adafruit_I2C as I2C
 
 #if True:
 #    mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)
@@ -14,11 +14,7 @@ import Adafruit_I2C
 IODIR = 0x00 
 GPIO = 0x09
 GPPU = 0x06
-
-direction = 0
-gpio = 0
-
-i2c = Adafruit_I2C(0x20)
+i2c = I2C.Adafruit_I2C(address=0x20)
 
 def setAllInput():
     i2c.write8(IODIR, 0xFF)
@@ -30,6 +26,8 @@ def setPinMode(pin, input):
     '''Pin is the pin number to modify input/output state of.
        Input is True to set the pin as input, False to set it as output'''
     
+    direction = i2c.read(IODIR)
+    
     if input:
         direction |= (1 << pin)
     else:
@@ -38,6 +36,8 @@ def setPinMode(pin, input):
     i2c.write(IODIR, direction)
 
 def setPin(pin, state):
+    gpio = i2c.read(GPIO)
+    
     if state:
         gpio = gpio | (1 << pin)
     else:
