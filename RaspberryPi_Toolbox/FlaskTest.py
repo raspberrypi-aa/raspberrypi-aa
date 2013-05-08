@@ -12,7 +12,7 @@ def root():
     
 @app.route('/echoParam')
 def echoParam():
-    return ','.join(request.args)
+    print request.args
         
     
 @app.route('/postTest', methods=['POST'])
