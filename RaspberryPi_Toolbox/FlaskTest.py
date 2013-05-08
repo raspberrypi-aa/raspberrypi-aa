@@ -17,6 +17,7 @@ def echoParam():
     return str(flask.request.args)
         
     
+# Test with:  curl --data key=val --data key2=val2 -X POST http://localhost:5000/postTest
 @app.route('/postTest', methods=['POST'])
 def postTest():
     return str(flask.request.form)
