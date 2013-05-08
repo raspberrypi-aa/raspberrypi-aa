@@ -12,7 +12,7 @@ if True:
 # Passing parameters to the request
 if True:
     searchTerms = {'q' : 'raspberryPi'} 
-    #r = requests.get('http://google.com/search', params=searchTerms)
-    #print r.text
-    #print r.response
+    r = requests.get('http://google.com/search', params=searchTerms)
+    print r.text
+    print r.response
 
