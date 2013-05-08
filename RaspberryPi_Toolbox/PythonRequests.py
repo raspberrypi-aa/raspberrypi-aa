@@ -2,5 +2,5 @@
 
 import requests
 
-requests.get('http://google.com')
-print requests.text
+r = requests.get('http://google.com')
+print r.text
