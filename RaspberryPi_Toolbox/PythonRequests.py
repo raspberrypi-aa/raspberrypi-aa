@@ -14,5 +14,5 @@ if True:
     searchTerms = {'q' : 'raspberryPi'} 
     r = requests.get('http://google.com/search', params=searchTerms)
     print r.raw
-    print r.response
+    print r.status_code
 
