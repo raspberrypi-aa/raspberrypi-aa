@@ -16,3 +16,12 @@ if True:
     print r.content
     print r.status_code
 
+
+#Basic auth
+if False:
+  r = requests.get('http://abcd.com', auth=('user', 'pass')
+  
+# Digest Auth
+if False:
+    r = requests.get('http://abcd.com', auth=HTTPDigestAuth('user', 'pass'))
+    
