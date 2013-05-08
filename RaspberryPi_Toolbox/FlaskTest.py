@@ -21,6 +21,7 @@ def postTest():
     
 
 if __name__ == '__main__':
+    app.debug = True
     app.run() # Host parameter needed to make it listen on external interface
     
     
