@@ -3,14 +3,16 @@
 import requests
 
 # Making a simple request
-r = requests.get('http://google.com')
-print r.text
-print r.status_code
-print r.headers
+if True:
+    r = requests.get('http://google.com')
+    print r.text
+    print r.status_code
+    print r.headers
 
 # Passing parameters to the request
-#searchTerms = {'q' : 'raspberryPi'} 
-#r = requests.get('http://google.com/search', params=searchTerms)
-#print r.text
-#print r.response
+if True:
+    searchTerms = {'q' : 'raspberryPi'} 
+    #r = requests.get('http://google.com/search', params=searchTerms)
+    #print r.text
+    #print r.response
 
