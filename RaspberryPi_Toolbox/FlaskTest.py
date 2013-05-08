@@ -17,6 +17,7 @@ def echoParam():
     
 @app.route('/postTest', methods=['POST'])
 def postTest():
+    return request.form['key']
     
 
 if __name__ == '__main__':
