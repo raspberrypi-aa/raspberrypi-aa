@@ -13,6 +13,6 @@ if True:
 if True:
     searchTerms = {'q' : 'raspberryPi'} 
     r = requests.get('http://google.com/search', params=searchTerms)
-    print r.text
+    print r.raw
     print r.response
 
