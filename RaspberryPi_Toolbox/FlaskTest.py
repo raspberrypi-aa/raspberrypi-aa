@@ -11,6 +11,7 @@ app = Flask(__name__)
 def root():
     return "Hello World"
     
+# Test with: curl http://localhost:5000/echoParam?k=v\&k1=v1
 @app.route('/echoParam')
 def echoParam():
     return str(flask.request.args)
