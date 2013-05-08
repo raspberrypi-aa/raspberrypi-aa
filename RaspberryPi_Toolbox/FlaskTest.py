@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import flask
 from flask import Flask
 
 # Create the server
