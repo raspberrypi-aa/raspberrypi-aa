@@ -8,8 +8,8 @@ print r.text
 print r.response
 
 # Passing parameters to the request
-searchTerms = {'q' : 'raspberryPi'} 
-r = requests.get('http://google.com/search', params=searchTerms)
-print r.text
-print r.response
+#searchTerms = {'q' : 'raspberryPi'} 
+#r = requests.get('http://google.com/search', params=searchTerms)
+#print r.text
+#print r.response
 
