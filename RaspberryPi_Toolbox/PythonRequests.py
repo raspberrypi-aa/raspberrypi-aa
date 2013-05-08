@@ -6,6 +6,7 @@ import requests
 r = requests.get('http://google.com')
 print r.text
 print r.status_code
+print r.headers
 
 # Passing parameters to the request
 #searchTerms = {'q' : 'raspberryPi'} 
