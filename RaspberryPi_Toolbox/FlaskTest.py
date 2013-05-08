@@ -12,7 +12,7 @@ def root():
     
 @app.route('/echoParam')
 def echoParam():
-    print request.args
+    print flask.request.args
         
     
 @app.route('/postTest', methods=['POST'])
