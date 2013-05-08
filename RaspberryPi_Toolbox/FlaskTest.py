@@ -19,7 +19,7 @@ def echoParam():
     
 @app.route('/postTest', methods=['POST'])
 def postTest():
-    return flask.request.form['key']
+    return str(flask.request.form)
     
 
 if __name__ == '__main__':
