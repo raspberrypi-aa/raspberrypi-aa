@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import flask
-from flask import Flask
+from flask import Flask, request
 
 # Create the server
 app = Flask(__name__)
