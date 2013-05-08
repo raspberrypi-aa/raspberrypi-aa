@@ -12,10 +12,16 @@ def root():
     
 @app.route('/echoParam')
 def echoParam():
-
+    return ','.join(request.args)
+        
+    
+@app.route('/postTest', methods=['POST'])
+def postTest():
+    
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0') # Host parameter needed to make it listen on external interface
+    
     
 
 
