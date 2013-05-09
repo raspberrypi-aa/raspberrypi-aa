@@ -7,3 +7,9 @@ def decorator(func):
         print "Function has been decorated"
         func()
     return inner_func(func)
+    
+def test_func(a):
+    print "Value is", str(a)
+    
+    
+test_func(10)
