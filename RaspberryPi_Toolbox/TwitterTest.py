@@ -18,5 +18,7 @@ auth = OAuth1('YOUR_APP_KEY', 'YOUR_APP_SECRET',
 requests.get(auth_url, auth=auth)
 
 
-twitter_post = {'status' : 'Raspberry Pi can talk',
+twitter_post = {'status' : 'Raspberry Pi can talk'}
+requests.post(post_url, twitter_post)
+
     
