@@ -22,7 +22,6 @@ if False:
 
 if True:
     status = "Raspberry Pi can talk"
-    print json.dumps(twitter_post)
     r = requests.post(post_url, auth=auth, data="status=%s" % (status))
     response = json.loads(r)
     print response
