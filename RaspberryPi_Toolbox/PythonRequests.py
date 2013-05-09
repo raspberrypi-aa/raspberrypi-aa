@@ -10,7 +10,7 @@ if False:
     print r.headers
 
 # Passing parameters to the request
-if True:
+if False:
     searchTerms = {'q' : 'raspberryPi'} 
     r = requests.get('http://google.com/search', params=searchTerms)
     print r.content
