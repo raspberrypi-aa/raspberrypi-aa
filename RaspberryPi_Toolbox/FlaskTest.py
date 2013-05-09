@@ -23,6 +23,8 @@ def postTest():
 
 #
 # Example of HTTP Basic Auth
+# Fails with: curl -v http://localhost:5000/basic
+# Works with curl --user user:pass http://localhost:5000/basic
 #
 from functools import wraps
 
