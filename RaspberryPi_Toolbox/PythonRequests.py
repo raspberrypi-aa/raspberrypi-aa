@@ -3,7 +3,7 @@
 import requests
 
 # Making a simple request
-if True:
+if False:
     r = requests.get('http://google.com')
     print r.text
     print r.status_code
