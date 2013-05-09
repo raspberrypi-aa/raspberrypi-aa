@@ -8,6 +8,7 @@ def decorator(func):
         func()
     return inner_func(func)
     
+@decorator
 def test_func(a):
     print "Value is", str(a)
     
