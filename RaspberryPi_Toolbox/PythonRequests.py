@@ -22,14 +22,12 @@ if True:
     r = requests.get('http://google.com/', headers=searchTerms)
     print r.content
     print r.status_code
-    
-
 
 #Basic auth
 if False:
   r = requests.get('http://abcd.com', auth=('user', 'pass')
   
 # Digest Auth
-if False:
+if True:
     r = requests.get('http://abcd.com', auth=HTTPDigestAuth('user', 'pass'))
     
