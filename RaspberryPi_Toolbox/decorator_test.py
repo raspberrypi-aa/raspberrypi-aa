@@ -3,10 +3,10 @@
 
 
 def decorator(func):
-    def inner_func(func):
+    def inner_func():
         print "Function has been decorated"
         func()
-    return inner_func(func)
+    return inner_func()
     
 @decorator
 def test_func(a):
