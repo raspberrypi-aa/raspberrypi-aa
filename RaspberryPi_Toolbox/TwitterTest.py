@@ -8,8 +8,8 @@ post_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
 consumer_key='92oyz9BnOjNlHDeKde0pg'
 consumer_secret='WE5x2ewboavGWLYJeHbxyBxQzolBQVLcIiZLqpsgh5g'
-access_token='8938062-rhlMsIq2QVQziyMKJHmU6sxfL4kcZzKKasWEVHuEq0'
-access_token_secret='MCQNdiAqLJgFJ2cQftMzWodiRufUXPj7nMbbPFozpZM'
+access_token='8938062-wkbg4TagRKS7IJCaauvpX9LQtuX4FIsevFXWDhbkkK'
+access_token_secret='8vC7Nr8cisMCRl3hRevQsoGlr0UuBZ24UMNNxe99ek'
 
 
 auth = OAuth1(consumer_key, consumer_secret, 
