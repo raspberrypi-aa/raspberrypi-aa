@@ -12,8 +12,8 @@ access_token='8938062-rhlMsIq2QVQziyMKJHmU6sxfL4kcZzKKasWEVHuEq0'
 access_token_secret='MCQNdiAqLJgFJ2cQftMzWodiRufUXPj7nMbbPFozpZM'
 
 
-auth = OAuth1('YOUR_APP_KEY', 'YOUR_APP_SECRET', 
-    'USER_OAUTH_TOKEN', 'USER_OAUTH_TOKEN_SECRET')
+auth = OAuth1(consumer_key, consumer_secret, 
+    access_token, access_token_secret)
 
 requests.get(auth_url, auth=auth)
 
