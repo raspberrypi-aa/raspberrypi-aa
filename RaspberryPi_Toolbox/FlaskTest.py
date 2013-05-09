@@ -47,7 +47,11 @@ def requires_auth(f):
             return authenticate()
         return f(*args, **kwargs)
     return decorated
-    
+
+@app.route('/basic')
+@requires_auth
+def secret_page():
+    return render_template('secret_page.html')
 
 if __name__ == '__main__':
     app.debug = True
