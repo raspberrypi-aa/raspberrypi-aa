@@ -51,7 +51,7 @@ def requires_auth(f):
 @app.route('/basic')
 @requires_auth
 def secret_page():
-    return render_template('secret_page.html')
+    return "Authenticated Hello World"
 
 if __name__ == '__main__':
     app.debug = True
