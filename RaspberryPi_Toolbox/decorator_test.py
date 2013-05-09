@@ -3,9 +3,9 @@
 
 
 def decorator(func):
-    def inner_func():
+    def inner_func(x):
         print "Function has been decorated"
-        func()
+        func(x)
     return inner_func()
     
 @decorator
