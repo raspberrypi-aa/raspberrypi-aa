@@ -19,7 +19,7 @@ def echoParam():
 from flask import render_template
 @app.route('/template')
 def template():
-    return render_template('template_test.html', name='Asylum')
+    return render_template('template_test.html', name='Asylum', birthday=True)
     
 # Test with:  curl --data key=val --data key2=val2 -X POST http://localhost:5000/postTest
 @app.route('/postTest', methods=['POST'])
