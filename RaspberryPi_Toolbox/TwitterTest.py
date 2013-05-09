@@ -21,7 +21,7 @@ if False:
     print r.text
 
 if True:
-    status = "Raspberry Pi can talk"
+    status = "Raspberry Pi can talk back"
     r = requests.post(post_url, auth=auth, data="status=%s" % (status))
     print r.status_code
     if r.status_code == 200:
