@@ -23,9 +23,10 @@ if False:
 if True:
     status = "Raspberry Pi can talk"
     r = requests.post(post_url, auth=auth, data="status=%s" % (status))
-    response = json.loads(r)
-    print response
     print r.status_code
+    if r.status_code == 200:
+        response = json.loads(r)
+        print response
 
 
 
