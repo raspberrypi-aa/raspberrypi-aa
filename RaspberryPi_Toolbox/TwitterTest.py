@@ -19,7 +19,7 @@ requests.get(auth_url, auth=auth)
 
 
 twitter_post = {'status' : 'Raspberry Pi can talk'}
-r = requests.post(post_url, twitter_post)
+r = requests.post(post_url, data=json.dumps(twitter_post))
 print r.status_code
 
 
