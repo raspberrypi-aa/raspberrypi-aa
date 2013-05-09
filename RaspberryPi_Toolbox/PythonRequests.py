@@ -19,7 +19,7 @@ if True:
 # Setting headers
 if True:
     searchTerms = {'X-Platform' : 'raspberryPi'} 
-    r = requests.get('http://google.com/search', headers=searchTerms)
+    r = requests.get('http://google.com/', headers=searchTerms)
     print r.content
     print r.status_code
     
