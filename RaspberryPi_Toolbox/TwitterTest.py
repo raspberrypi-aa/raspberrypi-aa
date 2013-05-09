@@ -25,8 +25,7 @@ if True:
     r = requests.post(post_url, auth=auth, data="status=%s" % (status))
     print r.status_code
     if r.status_code == 200:
-        response = json.loads(r.text)
-        print response
+        print r.json()
 
 
 
