@@ -26,6 +26,8 @@ if True:
     print r.status_code
     if r.status_code == 200:
         print r.json()
+    else:
+        print r.text
 
 
 
