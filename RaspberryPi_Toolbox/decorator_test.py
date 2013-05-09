@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 
-
 def decorator(func):
     def inner_func(x):
         print "Function has been decorated"
