@@ -23,7 +23,7 @@ if False:
 if True:
     twitter_post = {'status' : 'Raspberry Pi can talk'}
     print json.dumps(twitter_post)
-    r = requests.post(post_url, auth=auth, data=json.dumps(twitter_post))
+    r = requests.post(post_url, auth=auth, data="{'status' : 'Its alive'}")
     print r.status_code
     print r.text
 
