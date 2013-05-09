@@ -3,10 +3,14 @@
     <title>Template Test</title>
   </head>
   
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
+ <!-- Template Reference: http://jinja.pocoo.org/docs/templates/ -->
+  
+<p>{{ name }} </p>
+
+{% if birthday %}
+  <p>Happy Birthday</p>
 {% else %}
-  <h1>Hello World!</h1>
-{% endif %}
+  <p></p>
+
 
 </html>
