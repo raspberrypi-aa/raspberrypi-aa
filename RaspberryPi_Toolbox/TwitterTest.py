@@ -19,6 +19,8 @@ requests.get(auth_url, auth=auth)
 
 
 twitter_post = {'status' : 'Raspberry Pi can talk'}
-requests.post(post_url, twitter_post)
+r = requests.post(post_url, twitter_post)
+print r.status_code
+
 
     
