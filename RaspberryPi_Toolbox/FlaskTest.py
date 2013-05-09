@@ -15,6 +15,8 @@ def root():
 def echoParam():
     return str(request.args)
     
+# Template tesT:
+from flask import render_template
 @app.route('/template')
 def template():
     return flask.render_template('template_test.html', name='Asylum')
