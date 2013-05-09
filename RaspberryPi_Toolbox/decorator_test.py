@@ -6,7 +6,7 @@ def decorator(func):
     def inner_func(x):
         print "Function has been decorated"
         func(x)
-    return inner_func()
+    return inner_func
     
 @decorator
 def test_func(a):
