@@ -20,7 +20,7 @@ def echoParam():
     
 import json 
 @app.route('/jsonTest')
-def json():
+def jsonTest():
     return json.dumps({'key1': 'value1'})
     
 # Template tesT:
