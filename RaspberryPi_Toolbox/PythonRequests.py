@@ -4,7 +4,7 @@ import requests
 import sys
 
 # Making a simple request
-if True:
+if False:
     r = requests.get('http://google.com')
     print r.text
     print r.status_code
@@ -12,9 +12,10 @@ if True:
     sys.exit(0)
 
 # Passing parameters to the request
-if False:
-    searchTerms = {'q' : 'raspberryPi'} 
-    r = requests.get('http://google.com/search', params=searchTerms)
+if True:
+    searchTerms = {'q' : 'raspberry Pi'} 
+    r = requests.get('http://google.com/search', 
+                params=searchTerms)
     print r.content
     print r.status_code
     
