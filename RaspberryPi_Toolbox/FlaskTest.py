@@ -36,7 +36,7 @@ def template():
 def postTest():
     postData = request.form['key']
     jsonObj = json.loads(postData)
-    return jsonObj
+    return str(jsonObj)
 
 #
 # Example of HTTP Basic Auth
