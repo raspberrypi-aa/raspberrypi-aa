@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
 import requests
+import sys
 
 # Making a simple request
-if False:
+if True:
     r = requests.get('http://google.com')
     print r.text
     print r.status_code
     print r.headers
+    sys.exit(0)
 
 # Passing parameters to the request
 if False:
