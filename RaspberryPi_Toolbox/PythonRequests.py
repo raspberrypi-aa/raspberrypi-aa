@@ -16,7 +16,7 @@ if True:
     searchTerms = {'q' : 'raspberry Pi'} 
     r = requests.get('http://google.com/search', 
                 params=searchTerms)
-    print r.content
+    print r.text
     print r.status_code
     
 # Setting headers
