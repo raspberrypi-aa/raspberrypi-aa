@@ -19,6 +19,7 @@ def echoParam():
         return "Missing parameter"
     
 @app.route('/jsonTest')
+import json
 def json():
     obj = {'key1': 'value1'}
     return json.dumps(obj)
