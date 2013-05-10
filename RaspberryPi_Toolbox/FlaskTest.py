@@ -18,8 +18,9 @@ def echoParam():
     except KeyError:
         return "Missing parameter"
     
+import json 
+
 @app.route('/jsonTest')
-import json
 def json():
     obj = {'key1': 'value1'}
     return json.dumps(obj)
