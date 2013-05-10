@@ -13,7 +13,7 @@ def root():
 # Test with: curl http://localhost:5000/echoParam?k=v\&k1=v1
 @app.route('/echoParam')
 def echoParam():
-    return str(request.args)
+    return str(request.args['q'])
     
 # Template tesT:
 from flask import render_template
