@@ -19,11 +19,9 @@ def echoParam():
         return "Missing parameter"
     
 import json 
-
 @app.route('/jsonTest')
 def json():
-    obj = {'key1': 'value1'}
-    return json.dumps(obj)
+    return json.dumps({'key1': 'value1'})
     
 # Template tesT:
 from flask import render_template
