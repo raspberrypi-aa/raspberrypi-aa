@@ -10,6 +10,11 @@ app = Flask(__name__)
 def root():
     return "Hello World"
     
+@app.route('/jsonTest')
+def jsonTest():
+    obj = {'key1' : 'value1'}
+    return json.dumps(obj)
+    
 # Test with: curl http://localhost:5000/echoParam?k=v\&k1=v1
 @app.route('/echoParam')
 def echoParam():
@@ -18,16 +23,10 @@ def echoParam():
     except KeyError:
         return "Missing parameter"
     
-import json 
-@app.route('/jsonTest')
-def jsonTest():
-    return json.dumps({'key1': 'value1'})
-    
 # Template tesT:
 from flask import render_template
 @app.route('/template')
 def template():
-    
     return render_template('template_test.html',
         name='Asylum', birthday=False)
     
