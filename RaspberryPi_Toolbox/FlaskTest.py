@@ -20,6 +20,7 @@ def echoParam():
     
 # Template tesT:
 from flask import render_template
+import json
 @app.route('/template')
 def template():
     return render_template('template_test.html',
