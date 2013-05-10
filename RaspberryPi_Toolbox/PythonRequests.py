@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import requests
-import sys
 
 # Making a simple request
 if False:
@@ -9,13 +8,11 @@ if False:
     print r.text
     print r.status_code
     print r.headers
-    sys.exit(0)
 
 # Passing parameters to the request
 if True:
     searchTerms = {'q' : 'raspberry Pi'} 
-    r = requests.get('http://google.com/search', 
-                params=searchTerms)
+    r = requests.get('http://google.com/search', params=searchTerms)
     print r.text
     print r.status_code
     
