@@ -18,11 +18,16 @@ def echoParam():
     except KeyError:
         return "Missing parameter"
     
+@app.route('/jsonTest')
+def json():
+    obj = {'key1': 'value1'}
+    return json.dumps(obj)
+    
 # Template tesT:
 from flask import render_template
-import json
 @app.route('/template')
 def template():
+    
     return render_template('template_test.html',
         name='Asylum', birthday=False)
     
