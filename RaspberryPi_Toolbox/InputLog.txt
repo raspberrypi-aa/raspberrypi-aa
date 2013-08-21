@@ -1,0 +1,80 @@
+Last login: Tue Aug 20 12:11:30 2013 from efriedri-mac.cable.rcn.com
+Please change your password using 'sudo /usr/bin/raspi-config'
+pi@ericpi ~ $ sudo python
+Python 2.7.3rc2 (default, May  6 2012, 20:02:25)
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>>
+>>> import RPi.GPIO
+>>> help(RPi.GPIO)
+
+>>> dir(RPi.GPIO)
+['ALT0', 'BCM', 'BOARD', 'BOTH', 'FALLING', 'HIGH', 'IN', 'LOW', 'OUT', 'PUD_DOWN', 'PUD_OFF', 'PUD_UP', 'PWM', 'RISING', 'RPI_REVISION', 'VERSION', '__doc__', '__file__', '__name__', '__package__', 'add_event_callback', 'add_event_detect', 'cleanup', 'event_detected', 'gpio_function', 'input', 'output', 'remove_event_detect', 'setmode', 'setup', 'setwarnings', 'wait_for_edge']
+>>> RPi.GPIO.wait_for_edge(18)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: function takes exactly 2 arguments (1 given)
+>>> RPi.GPIO.wait_for_edge(18, RPi.GPIO.FALLING)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: No access to /dev/mem.  Try running as root!
+>>>
+pi@ericpi ~ $ sudo python
+Python 2.7.3rc2 (default, May  6 2012, 20:02:25)
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import RPi.GPIO
+>>> RPi.GPIO.setup(RPi.GPIO.BCM)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Required argument 'direction' (pos 2) not found
+>>> RPi.GPIO.setmode(RPi.GPIO.BCM)
+>>> dir(RPi.GPIO)
+['ALT0', 'BCM', 'BOARD', 'BOTH', 'FALLING', 'HIGH', 'IN', 'LOW', 'OUT', 'PUD_DOWN', 'PUD_OFF', 'PUD_UP', 'PWM', 'RISING', 'RPI_REVISION', 'VERSION', '__doc__', '__file__', '__name__', '__package__', 'add_event_callback', 'add_event_detect', 'cleanup', 'event_detected', 'gpio_function', 'input', 'output', 'remove_event_detect', 'setmode', 'setup', 'setwarnings', 'wait_for_edge']
+>>> RPi.GPIO.setup(18, RPi.GPIO.INPUT)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute 'INPUT'
+>>> RPi.GPIO.setup(18, RPi.GPIO.IN)
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING)
+>>> RPi.GPIO.event_detected(18)
+False
+>>> RPi.GPIO.event_detected(18)
+True
+>>> RPi.GPIO.event_detected(18)
+False
+>>> help(RPi.GPIO.add_event_detect)
+
+>>> def button_pushed():
+...     print "Button Pushed"
+...
+>>> button_pushed()
+Button Pushed
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING, callback=button_pushed)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: Edge detection already enabled for this GPIO channel
+>>> RPi.GPIO.remove_event_detect(18)
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING, callback=button_pushed)
+>>> TypeError: button_pushed() takes no arguments (1 given)
+
+>>> RPi.GPIO.remove_event_detect(18)
+>>> def button_pushed2(arg):
+...     print "Button Pushed"
+...
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING, callback=button_pushed)
+>>> def button_pushed2(arg):
+... def button_pushed2(arg):
+KeyboardInterrupt
+>>> RPi.GPIO.remove_event_detect(18)
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING, callback=button_pushed2)
+>>> Button Pushed
+
+>>>
+>>> def button_pushed3(arg):
+...     print arg
+...
+>>> RPi.GPIO.remove_event_detect(18)
+>>> RPi.GPIO.add_event_detect(18, RPi.GPIO.FALLING, callback=button_pushed3)
+>>> 18
