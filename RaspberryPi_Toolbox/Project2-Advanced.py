@@ -12,8 +12,9 @@ updateIntervalSeconds=5
 
 counter = 0
 
-def fallingEdge():
-    global counter += 1    
+def fallingEdge(pin):
+    global counter
+    counter += 1    
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(switchPin, GPIO.IN)
