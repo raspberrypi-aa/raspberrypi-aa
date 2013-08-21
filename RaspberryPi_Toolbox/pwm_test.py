@@ -33,7 +33,7 @@ def setPwmDutyCycle(duty):
 
 def pwmTest():
     setPwmFrequency()
-    togglePwm(True)
+    #togglePwm(True)
     
     while True:
         for i in range(0, 95, 1):
