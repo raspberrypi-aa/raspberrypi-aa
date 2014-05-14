@@ -24,7 +24,8 @@ GPIO.setup(switchPin, GPIO.IN)
 
 rtimes = []
 
-while True:
+try:
+  while True:
     print "Starting soon..."
     time.sleep(random.random()*10)    
     
@@ -42,6 +43,9 @@ while True:
     rtimes.append(reaction_time)
     print "Average Time: " + str(1.0*sum(rtimes)/len(rtimes))
     time.sleep(5)
+except KeyboardInterrupt:
+  GPIO.cleanup()
+
     
     
 

@@ -14,8 +14,9 @@ GPIO.setup(LED, GPIO.OUT)	# Setup LED channel for output
 GPIO.setup(SWITCH, GPIO.IN)	# Setup switch channel for input
 GPIO.output(LED, GPIO.LOW)	# Initialize output state to low
 
-# Preserve system resources with sleep() by preventing constant polling for input
-while True:
+try:
+  # Preserve system resources with sleep() by preventing constant polling for input
+  while True:
     while GPIO.input(SWITCH) == GPIO.HIGH:	# Sleep while button released
         time.sleep(.02)
     # When button is pressed, exit while loop
@@ -30,4 +31,6 @@ while True:
     end_time = time.time()
     print "Stopped Timer"
     print "Time: " + str(end_time - start_time)
+except KeyboardInterrupt:
+  GPIO.cleanup()
 
