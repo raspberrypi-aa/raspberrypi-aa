@@ -5,7 +5,7 @@
 <link href="/dashboard.css" rel="stylesheet">
 {% endblock %}
 
-{% block title %}Raspberry Pi GPIO Tester{% endblock %}
+{% block title %}Raspberry Pi Home Automation{% endblock %}
 
 {% block navbar %}
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -25,13 +25,15 @@
 {% block content %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
+    <div class="col-sm-3 col-md-3 sidebar">
       <ul class="nav nav-sidebar">
-        <li class="active"><a href="#">Home</a></li>
+      <li {% if lighting   %} class="active" {% endif %}><a href="/lighting">Lighting</a></li>
+      <li {% if appliances %} class="active" {% endif %}><a href="/appliances">Appliances</a></li>
+      <li {% if exterior   %} class="active" {% endif %}><a href="/exterior">Exterior</a></li>
       </ul>
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">Dashboard</h1>
+    <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+      <h1 class="page-header">{{page_title}}</h1>
       <div class="row placeholders">
 	
 	<!-- Alert Box, visible on error -->
@@ -56,19 +58,75 @@
         </div>
         {% endif %}
 
+        {% if home %}
+          <div class="pull-left">
+            <div class="btn-group">
+              <a href="/test"><button type="button" class="btn btn-default">Test!</button></a>
+            </div>
+            <br/>
+            Click the menu on the left for more parts.
+          </div>
+        {% endif %}
 
+        {% if lighting %}
+          <div class="panel panel-primary pull-left">
+            <div class="panel-heading">Lamp (Pin 18)</div>
+            <div class="panel-body">
+              <ul class="nav nav-pills">
+                <li {% if lighting.active %}class="active"{% endif %}><a href="/lighting/on">On</a></li>
+                <li {% if not lighting.active %}class="active"{% endif %}><a href="/lighting/off">Off</a></li>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
 
-	<!-- Table holding 1 row for each GPIO pin -->
-        <table class="table table-striped table-responsive">
-          <tr><td>Pin Name</td><td>Direction</td><td>State</td></tr>
-	  {% for pin in pinSet %}
-           <tr class="{{pin['class']}}">
-             <td>{{pin['name']}}</td>
-             <td>{{pin['direction']}}</td>
-	     <td>{{pin['state']}}</td>
-           </tr>
-          {% endfor %}
-        </table> 
+        {% if appliances %}
+      <div class="panel panel-primary pull-left">
+            <div class="panel-heading">Coffee Maker (Pin 23)</div>
+            <div class="panel-body">
+              Turn coffee maker off in:<br/>
+  	      <span class="glyphicon glyphicon-time"></span>
+              30 seconds<br/>
+	      <ul class="nav nav-pills">
+                {% if appliances.coffee %}
+                  <li class="active"><a href="/appliances/coffee/stop">Stop Timer/Off</a></li>
+                {% else %}
+                  <li><a href="/appliances/coffee/set">Set Timer</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+      <div class="panel panel-primary pull-left">
+            <div class="panel-heading">Clothes Dryer Status (Pin 24)</div>
+            <div class="panel-body">
+              <ul class="nav nav-pills pull-left">
+                <li {% if appliances.dryer %}class="active"{% endif %}><a href="#">On</a></li>
+                <li {% if not appliances.dryer %}class="active"{% endif %}><a href="#">Off</a></li>
+              </ul>
+	    </div>
+          </div>
+        {% endif %}
+
+        {% if exterior %}
+          <div class="panel panel-primary pull-left">
+            <div class="panel-heading">Doorbell (Pin 17)</div>
+            <div class="panel-body">
+		Has Doorbell been rung? 
+                {% if exterior.doorbell %}
+   		  <span class="label label-success">Yes</span>
+                {% else %}
+   		  <span class="label label-default">No</span>
+                {% endif %}
+               
+            </div>
+          </div>
+         <div class="panel panel-primary pull-left">
+            <div class="panel-heading">Mailbox (Pin 4)</div>
+            <div class="panel-body">
+                Last Pressed: <strong>{{exterior.time_string}}</strong>
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
