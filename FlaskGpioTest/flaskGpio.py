@@ -66,7 +66,7 @@ def create_app():
   def coffee_set():
     """" Schedule a timer to turn the coffee pin on at the specified time 
 
-    If there is already another timer set (either start or stop), delete that timer and start a new one"""
+    If there is already another timer set, delete that timer and start a new one"""
     if coffeeTimer is not None:
       coffeeTimer.cancel()
     coffeeTime = threading.Timer(30, coffee_on)
