@@ -2,9 +2,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 import datetime
-import RPi.GPIO as GPIO
 import sys
-import threading
 
 LAMP_PIN = 18
 COFFEE_PIN = 23
@@ -24,9 +22,7 @@ def create_app():
   def root():
     return render_template('flaskGpioTemplate.html', page_title="Home", home=True)
 
-  @app.route('/test')
-  def test():
-     return render_template('flaskGpioTemplate.html', page_title="Home", successMsg="You clicked the button!", home=True)
+# TODO: Add a handler for the path "/test" here
 
   @app.route('/lighting')
   def lighting():
@@ -36,7 +32,7 @@ def create_app():
   @app.route('/lighting/on')
   def lighting_on():
     """Turn the lamp on by setting LAMP_PIN to high. """
-    GPIO.output(LAMP_PIN, GPIO.HIGH)
+# TODO: Set LAMP_PIN output to high
     lightingData={}
     lightingData['active'] = True
     return render_template('flaskGpioTemplate.html', page_title="Lighting", lighting=lightingData) 
@@ -44,7 +40,7 @@ def create_app():
   @app.route('/lighting/off')
   def lighting_off():
     """Turn the lamp off by setting LAMP_PIN to low. """
-    GPIO.output(LAMP_PIN, GPIO.LOW)
+# TODO: Set LAMP_PIN output to low
     lightingData={}
     lightingData['active'] = False
     return render_template('flaskGpioTemplate.html', page_title="Lighting", lighting=lightingData)       
@@ -53,8 +49,7 @@ def create_app():
   def appliances():
     applianceData = {}
     applianceData['dryer'] = False
-    if GPIO.input(DRYER_PIN):
-      applianceData['dryer'] = True
+# TODO: Check state of the DRYER_PIN input and update applianceData['dryer'] if needed
     return render_template('flaskGpioTemplate.html', page_title="Appliances", appliances=applianceData)
 
   def coffee_on():
@@ -64,14 +59,9 @@ def create_app():
 
   @app.route('/appliances/coffee/set')
   def coffee_set():
-    """" Schedule a timer to turn the coffee pin on at the specified time 
+    """" Schedule a timer to turn the coffee pin on at the specified time """
 
-    If there is already another timer set, delete that timer and start a new one"""
-    if coffeeTimer is not None:
-      coffeeTimer.cancel()
-    coffeeTime = threading.Timer(30, coffee_on)
-    coffeeTime.start()
-
+# TODO: If there is already another timer set, delete that timer and start a new one
     applianceData = {}
     applianceData['coffee'] = True
     return render_template('flaskGpioTemplate.html', page_title="Appliances", appliances=applianceData) 
@@ -79,9 +69,8 @@ def create_app():
   @app.route('/appliances/coffee/stop')
   def coffee_stop():
     """" Stop timer if one is running """
-    if coffeeTimer is not None:
-      coffeeTimer.cancel()
-    GPIO.output(COFFEE_PIN, GPIO.LOW)
+# TODO: Stop coffeeTimer is one is running, make sure the output is turned off
+
     applianceData = {}
     applianceData['coffee'] = False
     return render_template('flaskGpioTemplate.html', page_title="Appliances", appliances=applianceData) 
@@ -96,35 +85,31 @@ def create_app():
     exterior = {'doorbell': False,
                 'time_string': lastMailboxPush}
 
-    if (GPIO.event_detected(DOORBELL_PIN)):
-      exterior['doorbell'] = True
-
-    print exterior
-
+# TODO: Check if any events have been detected on the doorbell pin, set exterior['doorbell'] if so
     return render_template('flaskGpioTemplate.html', page_title="Exterior", exterior=exterior)
 
   return app
 
 
 def setupPins():
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setup(LAMP_PIN, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(COFFEE_PIN, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(DRYER_PIN, GPIO.IN)
-
+# TODO: Setup the pins following the instructions. When complete, this should be the state
+#  - GPIO is in Broadcom mode
+#  - Output pins (initial state low): LAMP_PIN, COFFEE_PIN
+#  - Input Pin: DRYER_PIN
+  pass
 
 def setupDoorbellPin():
-  GPIO.setup(DOORBELL_PIN, GPIO.IN)
-  GPIO.add_event_detect(DOORBELL_PIN, GPIO.FALLING)
+# TODO: Setup DOORBELL_PIN as an input with an event trigger on GPIO.FALLING
+  pass
 
 def mailboxCallback(pin):
   global lastMailboxPush
   lastMailboxPush = datetime.datetime.now().strftime("%c")
   
 def setupMailboxPin():
-  GPIO.setup(MAILBOX_PIN, GPIO.IN)
-  GPIO.add_event_detect(MAILBOX_PIN, GPIO.FALLING,
-                        bouncetime=200, callback=mailboxCallback)
+# TODO: Setup MAILBOX_PIN as an input with an event trigger on GPIO.FALLING 
+#       and a callback function of mailboxCallback
+  pass
 
 if __name__ == '__main__':
   try:
