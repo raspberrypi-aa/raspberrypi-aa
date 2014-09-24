@@ -14,7 +14,7 @@ servoChannel = 2
 
 def setServo(servoChannel, position):
     with open("/dev/servoblaster", "w") as f:
-        f.write("%d=%d" % (servoChannel, position))
+        f.write("%u=%u" % (servoChannel, position))
         print position
         
     
