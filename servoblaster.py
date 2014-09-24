@@ -20,8 +20,13 @@ def setServo(servoChannel, position):
     
 
 if __name__ == '__main__':
-    for i in range(50, 250):
-        setServo(servoChannel, 240)
-        time.sleep(.1)
+    while True:
+        
+        for i in range(50, 250):
+            print i
+            setServo(servoChannel, i)
+            time.sleep(.1)
+        
+        print "Resetting"
         
 
