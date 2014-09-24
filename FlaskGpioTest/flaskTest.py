@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from Flask import Flask
+from Flask import flask
 import RPi.GPIO as GPIO
 
 
