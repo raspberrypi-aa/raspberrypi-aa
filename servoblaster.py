@@ -27,11 +27,11 @@ if __name__ == '__main__':
         setServo(servoChannel, val)
         time.sleep(.01)
     
-        val += direction
-        
         if val == 249:
             print "Top"
             direction -= 1
         elif val == 50:
             print "Bottom"
             direction = 1
+
+        val += direction
