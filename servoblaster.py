@@ -10,7 +10,7 @@ import time
 
 # From /dev/servoblaster.cfg:
 # Servo Channel 0 => GPIO 4
-servoChannel = 0
+servoChannel = 2
 
 def setServo(servoChannel, position):
     with open("/dev/servoblaster", "w") as f:
