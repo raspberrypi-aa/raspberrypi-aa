@@ -29,7 +29,7 @@ if __name__ == '__main__':
     
         val += direction
         
-        if i == 249:
+        if val == 249:
             direction -= 1
-        elif i == 50:
+        elif val == 50:
             direction = 1
