@@ -18,6 +18,8 @@ def setServo(servoChannel, position):
     
     with open("/dev/servoblaster", "w") as f:
         f.write(servoStr)
+    
+    return
         
                 
     
