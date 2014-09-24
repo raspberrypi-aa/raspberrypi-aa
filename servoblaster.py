@@ -23,8 +23,8 @@ if __name__ == '__main__':
     val = 50
     direction = 1
     while True:
-        print i
-        setServo(servoChannel, i)
+        print val
+        setServo(servoChannel, val)
         time.sleep(.01)
     
         val += direction
