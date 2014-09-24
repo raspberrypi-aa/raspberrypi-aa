@@ -28,10 +28,8 @@ if __name__ == '__main__':
         time.sleep(.01)
     
         if val == 249:
-            print "Top"
             direction -= 1
         elif val == 50:
-            print "Bottom"
             direction = 1
 
         val += direction
