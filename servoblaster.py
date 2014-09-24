@@ -23,6 +23,6 @@ def setServo(servoChannel, position):
     
 
 if __name__ == '__main__':
-    setServo(servoChannel, 5-)
+    setServo(servoChannel, 50)
         
 
