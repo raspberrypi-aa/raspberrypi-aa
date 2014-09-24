@@ -22,7 +22,7 @@ def setServo(servoChannel, position):
 if __name__ == '__main__':
     while True:
         
-        for i in [range(50, 250), range(250, 50, -1)]:
+        for i in range(50, 250), range(250, 50, -1):
             print i
             setServo(servoChannel, i)
             time.sleep(.01)
