@@ -25,7 +25,7 @@ if __name__ == '__main__':
         for i in range(50, 250):
             print i
             setServo(servoChannel, i)
-            time.sleep(.1)
+            time.sleep(.05)
         
         print "Resetting"
         
