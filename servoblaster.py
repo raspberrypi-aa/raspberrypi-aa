@@ -13,7 +13,10 @@ import time
 servoChannel = 2
 
 def setServo(servoChannel, position):
+    
     servoStr ="%u=%u\n" % (servoChannel, position)
+
+    
     with open("/dev/servoblaster", "wb") as f:
         f.write(servoStr)
                 
