@@ -16,6 +16,7 @@ X-Axis:
  - Temperature
  - Pressue
 '''    
+
     def __init__(self):
         with open('./config.json') as config_file:
             plotly_user_config = json.load(config_file)
