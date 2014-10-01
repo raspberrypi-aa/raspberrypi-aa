@@ -41,7 +41,7 @@ class TempPresPlotlyWrapper:
         data = Data([tempTrace, presTrace])
         layout = Layout(title='Raspberry Pi Temp/Pressure Graph',
                         yaxis=YAxis(title='deg C'),
-                        yaxis2=YAxis(title='Pa', overlaying='y', side='right')
+                        yaxis2=YAxis(title='kPa', overlaying='y', side='right')
                         )
     
         fig = Figure(data=data, layout=layout)
