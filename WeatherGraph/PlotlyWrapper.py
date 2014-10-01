@@ -1,4 +1,6 @@
 import plotly.plotly as pltly
+from plotly.graph_objs import *
+
 import json
 import datetime
 
@@ -33,5 +35,6 @@ X-Axis:
         self.stream.open()
 
     def addTemperaturePressure(self, temp, pressure):
-        self.stream.write({'x': time.time(), 'y': 4})
+        x = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+        self.stream.write({'x': x, 'y': temp})
 
