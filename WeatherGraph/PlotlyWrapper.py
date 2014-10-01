@@ -21,6 +21,18 @@ X-Axis:
             plotly_user_config = json.load(config_file)
             pltly.sign_in(plotly_user_config["plotly_username"], plotly_user_config["plotly_api_key"])
 
+        tempTrace = Scatter(
+           x=[],
+           y=[],
+           name='Temperature [deg C]'
+        )
+        
+        presTrace = Scatter(
+           x=[],
+           y=[],
+           name='Pressure [Pa]'
+        )
+        
         url = pltly.plot([{
             'x': [],
             'y': [],
