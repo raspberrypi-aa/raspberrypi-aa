@@ -46,8 +46,7 @@ class TempPresPlotlyWrapper:
         layout = Layout(title='Raspberry Pi Temp/Pressure Graph',
                         yaxis=YAxis(title='deg C', range=[0, 50]),
                         yaxis2=YAxis(title='kPa', overlaying='y', side='right',
-                                    range=[100.87, 101.085]
-                        )
+                                    range=[100.87, 101.085])
     
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig, filename='Raspberry Pi Streaming Example')
