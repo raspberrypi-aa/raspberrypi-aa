@@ -33,18 +33,17 @@ X-Axis:
            name='Pressure [Pa]'
         )
         
-        url = pltly.plot([{
-            'x': [],
-            'y': [],
-            'type': 'scatter',
-            'stream': {
-                'token': plotly_user_config['plotly_streaming_tokens'][0], 
-                'maxpoints': 200
-            }
-        }], filename='Raspberry Pi Streaming Example Values')
-
-        self.stream = pltly.Stream(plotly_user_config['plotly_streaming_tokens'][0])
-        self.stream.open()
+        data = Data([tempTrace, presTrace])
+        layout = Layout(title='Raspberry Pi Temp/Pressure Graph',
+                        yaxis=YAxis(title='deg C'),
+                        yaxis2=YAxis(title='Pa', overlaying='y', side='right')
+                        )
+        fig = Figure(data=data, layout=layout)
+        plot_url = pltly.plot(fig)
+        self.stream = plot_url.open()
+                        
+                            
+        
 
     def addTemperaturePressure(self, temp, pressure):
         x = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
