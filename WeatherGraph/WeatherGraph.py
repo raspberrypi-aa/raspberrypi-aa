@@ -18,7 +18,7 @@ print 'Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure())
 
 for i in range(0, 10):
     temp = sensor.read_temperature()
-    pressure = sensor.read_pressure()
+    pressure = sensor.read_pressure()/1000
     print 'Temp = {0:0.2f} *C'.format(temp)
     print 'Pressure = {0:0.2f} Pa'.format(pressure)
     plotter.addTemperaturePressure(temp, pressure)
