@@ -29,7 +29,9 @@ X-Axis:
             }
         }], filename='Raspberry Pi Streaming Example Values')
 
-stream = pltly.Stream(plotly_user_config['plotly_streaming_tokens'][0])
-stream.open()
+        self.stream = pltly.Stream(plotly_user_config['plotly_streaming_tokens'][0])
+        self.stream.open()
 
-import time
+    def addTemperaturePressure(self, temp, pressure):
+        self.stream.write({'x': time.time(), 'y': 4})
+
