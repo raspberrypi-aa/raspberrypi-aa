@@ -12,10 +12,6 @@ import time
 sensor = BMP085.BMP085()
 plotter = PlotlyWrapper.TempPresPlotlyWrapper()
 
-print 'Altitude = {0:0.2f} m'.format(sensor.read_altitude())
-print 'Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure())
-
-
 for i in range(0, 60):
     temp = sensor.read_temperature()
     pressure_kPa = sensor.read_pressure()/1000
