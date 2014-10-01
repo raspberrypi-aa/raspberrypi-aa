@@ -55,5 +55,6 @@ X-Axis:
 
     def addTemperaturePressure(self, temp, pressure):
         x = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
-        self.stream.write({'x': x, 'y': temp})
+        self.tempStream.write({'x': x, 'y': temp})
+        self.presStream.write({'x': x, 'y': pressure})
 
