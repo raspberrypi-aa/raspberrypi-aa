@@ -26,16 +26,16 @@ class TempPresPlotlyWrapper:
            x=[],
            y=[],
            name='Temperature [deg C]',
-           stream = {token: plotly_user_config["plotly_streaming_tokens"][0], 
-                     maxpoints: 100}
+           stream = {'token': plotly_user_config["plotly_streaming_tokens"][0], 
+                     'maxpoints': 100}
         )
         
         presTrace = Scatter(
            x=[],
            y=[],
            name='Pressure [Pa]',
-           stream = {token: plotly_user_config["plotly_streaming_tokens"][1], 
-                     maxpoints: 100}
+           stream = {'token': plotly_user_config["plotly_streaming_tokens"][1], 
+                     'maxpoints': 100}
         )
         
         data = Data([tempTrace, presTrace])
