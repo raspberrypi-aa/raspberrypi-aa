@@ -21,5 +21,8 @@ for i in range(0, 10):
     pressure = sensor.read_pressure()
     print 'Temp = {0:0.2f} *C'.format(temp)
     print 'Pressure = {0:0.2f} Pa'.format(pressure)
-    plotter.addTemperaturePressure(
+    plotter.addTemperaturePressure(temp, pressure)
+    time.sleep(1)
+
+    
     
