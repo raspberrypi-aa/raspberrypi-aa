@@ -25,14 +25,14 @@ X-Axis:
            x=[],
            y=[],
            name='Temperature [deg C]',
-           stream = {token=plotly_user_config["plotly_stream_id"][0], maxpoints=100}
+           stream = {token=plotly_user_config["plotly_streaming_tokens"][0], maxpoints=100}
         )
         
         presTrace = Scatter(
            x=[],
            y=[],
            name='Pressure [Pa]',
-           stream = {token=plotly_user_config["plotly_stream_id"][1], maxpoints=100}
+           stream = {token=plotly_user_config["plotly_streaming_tokens"][1], maxpoints=100}
         )
         
         data = Data([tempTrace, presTrace])
@@ -42,8 +42,12 @@ X-Axis:
                         )
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig)
-        self.tempStream = Stream(
-        self.presStream = 
+        
+        self.tempStream = Stream(plotly_user_config["plotly_streaming_tokens"][0])
+        self.tempStream.open()
+        
+        self.presStream = Stream(plotly_user_config["plotly_streaming_tokens"][1])
+        self.presStream.open()
                         
                             
         
