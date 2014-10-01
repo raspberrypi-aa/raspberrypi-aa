@@ -15,7 +15,7 @@ X-Axis:
  Y-Axis: 
  - Temperature
  - Pressue
-'''    
+    '''    
 
     def __init__(self):
         with open('./config.json') as config_file:
