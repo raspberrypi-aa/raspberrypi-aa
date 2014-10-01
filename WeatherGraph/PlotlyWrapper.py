@@ -5,16 +5,16 @@ import json
 import datetime
 
 class TempPresPlotlyWrapper:
-''' This class creates a scatter plot with 2 y-axis data sets
-Requires config.json file in the current directory which contains key 
-and stream information.
+    ''' This class creates a scatter plot with 2 y-axis data sets
+    Requires config.json file in the current directory which contains key 
+    and stream information.
 
-X-Axis: 
- - Time
+    X-Axis: 
+    - Time
 
- Y-Axis: 
- - Temperature
- - Pressue
+     Y-Axis: 
+    - Temperature
+    - Pressue
     '''    
 
     def __init__(self):
