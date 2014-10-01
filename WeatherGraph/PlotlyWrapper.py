@@ -32,8 +32,8 @@ class TempPresPlotlyWrapper:
         
         presTrace = Scatter(
            x=[],
-           y=[],
-           name='Pressure [Pa]',
+           y=[100.87, 101.0857],
+           name='Pressure [kPa]',
            stream = {'token': plotly_user_config["plotly_streaming_tokens"][1], 
                      'maxpoints': 100}
         )
