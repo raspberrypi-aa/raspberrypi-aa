@@ -24,13 +24,15 @@ X-Axis:
         tempTrace = Scatter(
            x=[],
            y=[],
-           name='Temperature [deg C]'
+           name='Temperature [deg C]',
+           stream = {token=plotly_user_config["plotly_stream_id"][0], maxpoints=100}
         )
         
         presTrace = Scatter(
            x=[],
            y=[],
-           name='Pressure [Pa]'
+           name='Pressure [Pa]',
+           stream = {token=plotly_user_config["plotly_stream_id"][1], maxpoints=100}
         )
         
         data = Data([tempTrace, presTrace])
