@@ -47,10 +47,10 @@ class TempPresPlotlyWrapper:
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig)
         
-        self.tempStream = Stream({'token':plotly_user_config["plotly_streaming_tokens"][0]})
+        self.tempStream = pltly.Stream(plotly_user_config["plotly_streaming_tokens"][0])
         self.tempStream.open()
         
-        self.presStream = Stream({'token':plotly_user_config["plotly_streaming_tokens"][1]})
+        self.presStream = pltly.Stream(plotly_user_config["plotly_streaming_tokens"][1])
         self.presStream.open()
                         
                             
