@@ -20,7 +20,7 @@ for i in range(0, 10):
     temp = sensor.read_temperature()
     pressure_kPa = sensor.read_pressure()/1000
     print 'Temp = {0:0.2f} *C'.format(temp)
-    print 'Pressure = {0:0.2f} Pa'.format(pressure_kPa)
+    print 'Pressure = {0:0.2f} kPa'.format(pressure_kPa)
     plotter.addTemperaturePressure(temp, pressure_kPa)
     time.sleep(1)
 
