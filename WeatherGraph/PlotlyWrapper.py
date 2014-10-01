@@ -45,7 +45,7 @@ class TempPresPlotlyWrapper:
                         )
     
         fig = Figure(data=data, layout=layout)
-        plot_url = pltly.plot(fig)
+        plot_url = pltly.plot(fig, filename='Raspberry Pi Streaming Example')
         
         self.tempStream = pltly.Stream(plotly_user_config["plotly_streaming_tokens"][0])
         self.tempStream.open()
