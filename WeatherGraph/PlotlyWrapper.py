@@ -35,7 +35,7 @@ class TempPresPlotlyWrapper:
            y=[],
            name='Pressure [Pa]',
            stream = {token: plotly_user_config["plotly_streaming_tokens"][1], 
-                    maxpoints=100}
+                     maxpoints=100}
         )
         
         data = Data([tempTrace, presTrace])
