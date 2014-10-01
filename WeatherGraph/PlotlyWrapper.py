@@ -24,7 +24,7 @@ class TempPresPlotlyWrapper:
 
         tempTrace = Scatter(
            x=[],
-           y=[],
+           y=[0, 100],
            name='Temperature [deg C]',
            stream = {'token': plotly_user_config["plotly_streaming_tokens"][0], 
                      'maxpoints': 100}
