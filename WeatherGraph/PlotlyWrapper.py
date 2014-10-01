@@ -42,7 +42,8 @@ X-Axis:
                         )
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig)
-        self.stream = plot_url.open()
+        self.tempStream = Stream(
+        self.presStream = 
                         
                             
         
