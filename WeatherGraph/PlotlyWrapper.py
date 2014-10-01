@@ -40,6 +40,7 @@ X-Axis:
                         yaxis=YAxis(title='deg C'),
                         yaxis2=YAxis(title='Pa', overlaying='y', side='right')
                         )
+    
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig)
         
