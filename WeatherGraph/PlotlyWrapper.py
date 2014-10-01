@@ -38,15 +38,15 @@ class TempPresPlotlyWrapper:
            y=[],
            name='Pressure [kPa]',
            stream = {'token': plotly_user_config["plotly_streaming_tokens"][1], 
-                     'maxpoints': 100}
+                     'maxpoints': 100},
+            yaxis='y2'
         )
         
         data = Data([tempTrace, presTrace])
         layout = Layout(title='Raspberry Pi Temp/Pressure Graph',
                         yaxis=YAxis(title='deg C'),
                         yaxis2=YAxis(title='kPa', overlaying='y', side='right')
-                        ),
-            yaxis='y2'
+                        )
     
         fig = Figure(data=data, layout=layout)
         plot_url = pltly.plot(fig, filename='Raspberry Pi Streaming Example')
