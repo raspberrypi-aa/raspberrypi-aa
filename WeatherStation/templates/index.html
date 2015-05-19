@@ -76,6 +76,14 @@
 
     <!-- Home Page, shows current temperature and pressure summary -->
     {% if homePage %}
+    <div class="row">
+        <div class=".col-md-6">
+            Temperature: {{temp}}
+        </div>
+        <div class=".col-md-6">
+            Pressure: {{pressure}}
+        </div>
+    </div>
     {% endif %}
 
 
