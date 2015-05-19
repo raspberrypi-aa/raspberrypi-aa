@@ -28,4 +28,9 @@ sudo python setup.py install
 sudo pip install flask-bootstrap
 ```
 
+#### Install Plotly graphing library
+```bash
+sudo pip install plotly
+```
+
 
