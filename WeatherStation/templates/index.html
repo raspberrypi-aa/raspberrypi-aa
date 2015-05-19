@@ -14,12 +14,10 @@
           <a class="navbar-brand" href="#">Raspberry Pi Weather Station</a>
         </div>
         <div class="navbar-header">
-          <a class="nav navbar-nav navbar-right" href="#">
-	    {{hostname}}
-	  </a>
+          <a class="nav navbar-nav navbar-right" href="#">{{hostname}}</a>
         </div>
       </div>
-    </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -27,9 +25,9 @@
   <div class="row">
     <div class="col-sm-3 col-md-3 sidebar">
       <ul class="nav nav-sidebar">
-	<li>Summary</li>
-	<li>Temperature</li>
-	<li>Pressure</li>
+	    <li>Summary</li>
+	    <li>Temperature</li>
+	    <li>Pressure</li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
@@ -37,30 +35,30 @@
       <div class="row placeholders">
 	
 	<!-- Alert Box, visible on error -->
-        {% if errorMsg %}
+    {% if errorMsg %}
 	<div class="alert alert-danger alert-dismissable" role="alert">
-	  <button type="button" class="close" data-dismiss="alert"
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span> <!-- Only for screen readers -->
-          </button>
-          <strong>Error!</strong> {{errorMsg}}
-        </div>
-        {% endif %}
+	  <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span> <!-- Only for screen readers -->
+      </button>
+      <strong>Error!</strong> {{errorMsg}}
+    </div>
+    {% endif %}
 
 	<!-- Alert Box, visible on success -->
-        {% if successMsg %}
+    {% if successMsg %}
 	<div class="alert alert-success alert-dismissable" role="alert">
 	  <button type="button" class="close" data-dismiss="alert"
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span> <!-- Only for screen readers -->
-          </button>
-          <strong>Success!</strong> {{successMsg}}
-        </div>
-        {% endif %}
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span> <!-- Only for screen readers -->
+      </button>
+      <strong>Success!</strong> {{successMsg}}
+    </div>
+    {% endif %}
 
-        <!-- Home Page, shows current temperature and pressure summary -->
-        {% if indexPage %}
-        {% endif %}
+    <!-- Home Page, shows current temperature and pressure summary -->
+    {% if indexPage %}
+    {% endif %}
 
 
 
