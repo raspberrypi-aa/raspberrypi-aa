@@ -23,4 +23,9 @@ cd Adafruit_Python_BMP
 sudo python setup.py install
 {% endhighlight %}
 
+#### Install Flask Bootstrap Module
+```bash
+sudo pip install flask-bootstrap
+```
+
 
