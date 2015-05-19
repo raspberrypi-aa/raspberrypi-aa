@@ -27,9 +27,9 @@ def readWeatherSensors():
 
 @app.route("/")
 def index():
-    currentx = readWeatherSensors()
+    current = readWeatherSensors()
     return render_template('index.html',
-                           temp=current['temp'],
+                           temp = current['temp'],
                            pressure = current['pressure'])
                            
 
