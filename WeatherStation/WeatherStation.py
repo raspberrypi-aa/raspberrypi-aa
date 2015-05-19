@@ -34,7 +34,25 @@ def index():
                            temp = current['temp'],
                            pressure = current['pressure'])
                            
+                           
+                           
+@app.route("/temp")
+def temp():
+    return render_template('index.html',
+                           tempPage = True,
+                           page_title = "Past Temperatures")    
 
+@app.route("/pressure")
+def pressure():
+    return render_template('index.html',
+                           pressurePage = True,
+                           page_title = "Past Pressures")
+
+@app.route("/forecast")
+def forecast():
+    return render_template('index.html',
+                           forecastPage = True,
+                           page_title = "Forecast")
 
 if __name__ == "__main__":
     app.debug = True
