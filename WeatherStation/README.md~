@@ -1,0 +1,16 @@
+# Raspberry Pi Weather Station
+
+This code runs a basic temperature and pressure weather station using the BMP085/180 I2C sensor.
+
+
+
+### Setup
+On your Raspberry Pi, run the following commands to install the needed libraries
+
+{% highlight bash %}
+sudo apt-get update
+sudo apt-get install git build-essential python-dev python-smbus
+git clone https://github.com/adafruit/Adafruit_Python_BMP.git
+cd Adafruit_Python_BMP
+sudo python setup.py install
+{% endhighlight %}
