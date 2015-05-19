@@ -29,7 +29,7 @@ def readWeatherSensors():
 def index():
     current = readWeatherSensors()
     return render_template('index.html',
-                           homePage = true,
+                           homePage = True,
                            page_title = "Home Page",
                            temp = current['temp'],
                            pressure = current['pressure'])
