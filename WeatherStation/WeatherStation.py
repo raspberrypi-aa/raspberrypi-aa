@@ -57,10 +57,11 @@ def forecast():
     r = requests.get(query_url)
     if r.status_code != 200:
         print "Error:", r.status_code
-    print json.dumps(r.json(),
-       sort_keys = True,
-       indent=4)
+    #print json.dumps(r.json(),
+    #   sort_keys = True,
+    #   indent=4)
     forecast =  r.json()['daily']['icon']
+    print r.json()['daily']
     return render_template('index.html',
                            forecastPage = True,
                            page_title = "Forecast",
