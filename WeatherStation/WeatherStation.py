@@ -60,7 +60,7 @@ def forecast():
     print json.dumps(r.json(),
        sort_keys = True,
        indent=4)
-    forecast =  r.json()['daily'][0]['icon']
+    forecast =  r.json()['daily']['icon']
     return render_template('index.html',
                            forecastPage = True,
                            page_title = "Forecast",
