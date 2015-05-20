@@ -20,7 +20,7 @@ sensor = BMP085.BMP085()
 
 def readWeatherSensors():
     return {'temp': sensor.read_temperature(),
-            'pressure': sensor.read_pressure()/3380};
+            'pressure': sensor.read_pressure()/3380.0};
 
 @app.route("/")
 def index():
