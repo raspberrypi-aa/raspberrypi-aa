@@ -90,13 +90,13 @@
     {% if forecastPage %}
     <div class="row">
         <div class="col-md-12">
-            {% if equalto(icon, "rain") %}
+            {% if icon is equalto "rain" %}
             RAIN
             {% endif %}
-            {% if equalto(icon, "cloudy") %}
+            {% if icon is equalto "cloudy" %}
             Cloudy
             {% endif %}
-            {% if equalto(icon, "clear-day") %}
+            {% if icon is equalto "clear-day"  %}
             clear-day
             {% endif %}            
             
