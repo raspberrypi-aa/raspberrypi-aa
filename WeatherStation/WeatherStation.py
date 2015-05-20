@@ -59,7 +59,7 @@ def forecast():
         print "Error:", r.status_code
     print json.dumps(r.json(),
        sort_keys = True,
-       indent=4).keys()
+       indent=4)
     forecast =  r.json()['currently']['icon']
     return render_template('index.html',
                            forecastPage = True,
