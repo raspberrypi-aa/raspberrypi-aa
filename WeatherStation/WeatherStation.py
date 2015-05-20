@@ -45,11 +45,26 @@ def pressure():
                            pressurePage = True,
                            page_title = "Past Pressures")
 
+import requests
+import json
 @app.route("/forecast")
 def forecast():
+    api_url="https://api.forecast.io/forecast/%s/%f,%f"
+    api_key="95e520f32344fbe069d37ca9279d224e"
+    lat=42.38205
+    long=-71.10517
+    query_url = api_url % (api_key, lat, long) 
+    r = requests.get(query_url)
+    if r.status_code != 200:
+        print "Error:", r.status_code
+    #print json.dumps(r.json(),
+    #   sort_keys = True,
+    #   indent=4)
+    forecast =  r.json()['currently']['icon']
     return render_template('index.html',
                            forecastPage = True,
-                           page_title = "Forecast")
+                           page_title = "Forecast",
+                           forecast=forecast)
 
 if __name__ == "__main__":
     app.debug = True
