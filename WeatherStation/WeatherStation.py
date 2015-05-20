@@ -22,9 +22,6 @@ def readWeatherSensors():
     return {'temp': sensor.read_temperature(),
             'pressure': sensor.read_pressure()};
 
-#print 'Temp = {0:0.2f} *C'.format(sensor.read_temperature())
-#print 'Pressure = {0:0.2f} Pa'.format(sensor.read_pressure())
-
 @app.route("/")
 def index():
     current = readWeatherSensors()
