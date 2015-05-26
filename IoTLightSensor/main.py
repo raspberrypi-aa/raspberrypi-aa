@@ -27,12 +27,15 @@ def index():
     
 @app.route("/testSMS")
 def testSMS():
-    
-    msg = sms.messages.create(
+    level = adc.read(adcChannel)
+    msg = sms.messages.create(to=to_num, 
+        from = twilio_num, 
+        body = "Light Level: "+level)
+        
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
-        light = adc.read(adcChannel),
+        light = level,
         success = "Text Sent!")
 
 
