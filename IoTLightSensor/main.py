@@ -26,15 +26,25 @@ def index():
 @app.route("/testSMS")
 def testSMS():
     level = adc.read(adcChannel)
-    msg = sms.messages.create(to=to_num, 
-        from_ = twilio_num, 
-        body = "Light Level: "+str(level))
+    try:
+        msg = sms.messages.create(to=to_num, 
+            from_ = twilio_num, 
+            body = "Light Level: "+str(level))
+
+        return render_template('index.html',
+            homePage = True,
+            page_title = "Home Page",
+            light = level,
+            successMsg = "Text Sent!")            
+            
+    except TwilioRestException:
+        return render_template('index.html',
+            homePage = True,
+            page_title = "Home Page",
+            light = level,
+            errorMsg = "Error sending text!")        
         
-    return render_template('index.html',
-        homePage = True,
-        page_title = "Home Page",
-        light = level,
-        success = "Text Sent!")
+    
 
 
 if __name__ == "__main__":
