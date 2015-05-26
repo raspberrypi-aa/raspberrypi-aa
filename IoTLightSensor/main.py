@@ -37,12 +37,12 @@ def testSMS():
             light = level,
             successMsg = "Text Sent!")            
             
-    except TwilioRestException:
-        return render_template('index.html',
-            homePage = True,
-            page_title = "Home Page",
-            light = level,
-            errorMsg = "Error sending text!")        
+  #  except TwilioRestException:
+   #     return render_template('index.html',
+#            homePage = True,
+#            page_title = "Home Page",
+#            light = level,
+#            errorMsg = "Error sending text!")        
         
     
 
