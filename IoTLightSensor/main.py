@@ -29,7 +29,7 @@ def index():
 def testSMS():
     level = adc.read(adcChannel)
     msg = sms.messages.create(to=to_num, 
-        from = twilio_num, 
+        from_ = twilio_num, 
         body = "Light Level: "+level)
         
     return render_template('index.html',
