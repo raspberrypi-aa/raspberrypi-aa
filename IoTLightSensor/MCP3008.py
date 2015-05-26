@@ -27,6 +27,6 @@ class MCP3008:
             raise IOException("Bad channel number")
         
         result = self.spi.xfer2(self.buildReadCommand(channel))
-        return self.processAdcValue(r)
+        return self.processAdcValue(result)
         
         
