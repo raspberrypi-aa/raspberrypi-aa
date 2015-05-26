@@ -3,7 +3,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap        
 from MCP3008 import *
-from twilio.rest import TwilioRestClient
+from twilio.rest import TwilioRestClient, exceptions
 from credentials import *
 
 adc = MCP3008(0, 0)
@@ -37,7 +37,7 @@ def testSMS():
             light = level,
             successMsg = "Text Sent!")            
             
-    except twilio.rest.exceptions.TwilioRestException:
+    except exceptions.TwilioRestException:
         return render_template('index.html',
             homePage = True,
             page_title = "Home Page",
