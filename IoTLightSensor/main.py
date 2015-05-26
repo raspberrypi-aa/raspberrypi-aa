@@ -13,6 +13,7 @@ adcChannel = 0
 
 account_sid="XXXXX"
 auth_token="xxxx"
+twilio_num = "+16178603874"
 sms = TwilioRestClient(account_sid, auth_token)
 
 
@@ -24,6 +25,16 @@ def index():
         page_title = "Home Page",
         light = adc.read(adcChannel))
     
+    
+@app.route("/testSMS")
+def testSMS():
+    
+    msg = sms.messages.create(
+    return render_template('index.html',
+        homePage = True,
+        page_title = "Home Page",
+        light = adc.read(adcChannel),
+        success = "Text Sent!")
 
 
 if __name__ == "__main__":
