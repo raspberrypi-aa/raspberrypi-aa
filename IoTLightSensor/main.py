@@ -31,7 +31,7 @@ def testSMS():
     level = adc.read(adcChannel)
     try:
         msg = sms.messages.create(to=cred['to_num'], 
-            from_ = cred['twilio_num'], 
+            from_ = cred['from_num'], 
             body = "Light Level: "+str(level))
 
         return render_template('index.html',
