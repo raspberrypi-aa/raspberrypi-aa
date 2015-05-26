@@ -26,7 +26,7 @@ class MCP3008:
         if (channel < 0 or channel > 7):
             raise IOException("Bad channel number")
         
-        result = self.spi.xfer2(buildReadCommand(channel))
+        result = self.spi.xfer2(self.buildReadCommand(channel))
         return self.processAdcValue(r)
         
         
