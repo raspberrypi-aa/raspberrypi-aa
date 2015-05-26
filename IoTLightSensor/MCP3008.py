@@ -5,9 +5,9 @@ import spidev
 
 class MCP3008:
     def __init__(self, bus=0, device=0):
-    ''' Creates object to read MCP3008 ADC chip at given bus address.'''
-    self.spi = spidev.SpiDev()
-    self.spi.open(bus, device)
+        ''' Creates object to read MCP3008 ADC chip at given bus address.'''
+        self.spi = spidev.SpiDev()
+        self.spi.open(bus, device)
     
 
     def close(self):
