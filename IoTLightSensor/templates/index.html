@@ -1,0 +1,116 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+<link href="{{url_for('.static', filename='dashboard.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Raspberry Pi Weather Station{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Raspberry Pi Weather Station</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+            </form>
+          -->
+        </div>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li {% if homePage %} class="active" {% endif %}><a href="/">Home</a></li>
+            <li {% if tempPage %} class="active" {% endif %}><a href="/temp">Temperature</a></li>
+            <li {% if presPage %} class="active" {% endif %}><a href="/pressure">Pressure</a></li>
+            <li {% if forecastPage %} class="active" {% endif %}><a href="/forecast">Forecast</a></li>
+          </ul>
+    </div>
+   
+   <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+      <h1 class="page-header">{{page_title}}</h1>
+      <div class="row placeholders">
+    
+	<!-- Alert Box, visible on error -->
+    {% if errorMsg %}
+	<div class="alert alert-danger alert-dismissable" role="alert">
+	  <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span> <!-- Only for screen readers -->
+      </button>
+      <strong>Error!</strong> {{errorMsg}}
+    </div>
+    {% endif %}
+
+	<!-- Alert Box, visible on success -->
+    {% if successMsg %}
+	<div class="alert alert-success alert-dismissable" role="alert">
+	  <button type="button" class="close" data-dismiss="alert"
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span> <!-- Only for screen readers -->
+      </button>
+      <strong>Success!</strong> {{successMsg}}
+    </div>
+    {% endif %}
+
+    <!-- Home Page, shows current temperature and pressure summary -->
+    {% if homePage %}
+    <div class="row">
+        <div class="col-md-6">
+            Temperature: {{temp}} deg C
+        </div>
+        <div class="col-md-6">
+            Pressure: {{pressure}} inHg
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Forecast Page -->
+    {% if forecastPage %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if forecast == "rain" %}
+            <span class="glyphicon glyphicon-tint"></span><br/>
+            Tomorrow will be rainy
+            {% endif %}
+            {% if forecast == "cloudy" %}
+            <span class="glyphicon glyphicon-cloud"></span></br>
+            Tomorrow will be cloudy
+            {% endif %}
+            {% if forecast == "clear-day"  %}
+            <span class="glyphicon glyphicon-sunglasses"></span> <br/>
+            Tomorrow will be a nice day!
+            {% endif %}            
+            
+        </div>
+    </div>    
+    {% endif %}
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
