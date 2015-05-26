@@ -4,14 +4,17 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap        
 from MCP3008 import *
 from twilio.rest import TwilioRestClient, exceptions
-from credentials import *
+import json
 
 adc = MCP3008(0, 0)
 app = Flask(__name__, static_folder='static', static_url_path='')
 adcChannel = 0
+cred  = dict()
+with open('credentials') as f:
+    cred = json.load(f)
 
 
-sms = TwilioRestClient(account_sid, auth_token)
+sms = TwilioRestClient(cred['account_sid'], cred['auth_token'])
 
 
 
