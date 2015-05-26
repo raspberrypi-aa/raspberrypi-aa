@@ -24,7 +24,7 @@ class MCP3008:
     
     def read(self, channel):
         if (channel < 0 or channel > 7):
-            throw IOException("Bad channel number")
+            raise IOException("Bad channel number")
         
         result = self.spi.xfer2(buildReadCommand(channel))
         return self.processAdcValue(r)
