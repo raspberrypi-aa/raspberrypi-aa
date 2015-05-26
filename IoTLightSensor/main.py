@@ -8,7 +8,7 @@ import credentials
 
 
 
-adc = MCP3008.MCP3008(0, 0)
+adc = MCP3008(0, 0)
 app = Flask(__name__, static_folder='static', static_url_path='')
 adcChannel = 0
 
