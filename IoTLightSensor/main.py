@@ -26,7 +26,7 @@ def index():
 @app.route("/testSMS")
 def testSMS():
     level = adc.read(adcChannel)
-    try:
+    #try:
         msg = sms.messages.create(to=to_num, 
             from_ = twilio_num, 
             body = "Light Level: "+str(level))
