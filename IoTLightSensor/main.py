@@ -3,11 +3,18 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap        
 import MCP3008.MCP3008 as MCP3008
+from twilio.rest import TwilioRestClient
+
 
 
 adc = MCP3008(0, 0)
 app = Flask(__name__, static_folder='static', static_url_path='')
 adcChannel = 0
+
+account_sid="XXXXX"
+auth_token="xxxx"
+sms = TwilioRestClient(account_sid, auth_token)
+
 
 
 @app.route("/")
