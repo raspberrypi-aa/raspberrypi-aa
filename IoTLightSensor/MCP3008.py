@@ -16,7 +16,9 @@ class MCP3008:
     def buildReadCommand(self, channel):
         start = 1
         singleEnded = 1
-        return [0x00, 0x00 | (channel<<2) | (singleEnded <<5) | (start<<6), 0x00]
+        cmd = [start, 0x00 | (channel<<4) | (singleEnded <<7) , 0x00]
+        print "Command:"+str(cmd)
+        return cmd
         
     
     def processAdcValue(self, result):
@@ -27,6 +29,7 @@ class MCP3008:
             raise IOException("Bad channel number")
         
         result = self.spi.xfer2(self.buildReadCommand(channel))
+        print result
         return self.processAdcValue(result)
         
         
