@@ -35,7 +35,7 @@ if __name__ == "__main__":
     try:
         spi = MCP3008(0,0)
         while True:
-            print "ADC Value: " + spi.read(0)
+            print "ADC Value: " + str(spi.read(0))
             time.sleep(.5)
     except KeyboardInterrupt:
         print "Exiting..."
