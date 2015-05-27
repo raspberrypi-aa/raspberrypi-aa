@@ -41,7 +41,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 motorPin = 18
 freq = 1000
-GPIO.setup(motorPin, GPIO.OUT)
+GPIO.setup(motorPin, GPIO.OUT, GPIO.LOW)
 motor = GPIO.PWM(motorPin, freq)
 
 
