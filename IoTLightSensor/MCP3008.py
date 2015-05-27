@@ -22,7 +22,7 @@ class MCP3008:
         
     
     def processAdcValue(self, result):
-        return (result[1] & 0x03) + result[2]
+        return ((result[1] & 0x03)<<8) | result[2]
     
     def read(self, channel):
         if (channel < 0 or channel > 7):
