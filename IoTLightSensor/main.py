@@ -40,7 +40,11 @@ def testSMS():
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 motorPin = 18
+freq = 1000
 GPIO.setup(motorPin, GPIO.OUT)
+motor = GPIO.PWM(motorPin, freq)
+motor.start()
+
 @app.route("/startMotor")
 def startMotor():
     GPIO.output(motorPin, 1)
@@ -67,4 +71,5 @@ if __name__ == "__main__":
         
     finally:
         adc.close()
+        GPIO.cleanup()
         
