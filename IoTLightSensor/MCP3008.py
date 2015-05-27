@@ -16,20 +16,25 @@ class MCP3008:
     def buildReadCommand(self, channel):
         start = 1
         singleEnded = 1
-        cmd = [start, 0x00 | (channel<<4) | (singleEnded <<7) , 0x00]
-        print "Command:"+str(cmd)
-        return cmd
-        
+        # Write command, followed by a don't care bit, then a null bit, then space for 
+        # 10 bit ADC response
+        return [start, 0x00 | (channel<<4) | (singleEnded <<7) , 0x00]
     
     def processAdcValue(self, result):
         return ((result[1] & 0x03)<<8) | result[2]
     
     def read(self, channel):
+        ''' Returns ADC value
+        
+            Returns result of analog to digtal conversion of the given channel.
+            Results are between 0 and 1024
+            
+            Arguments:
+            -- channel: ADC channel to convert, bettween 0 and 7 inclusive)'''
         if (channel < 0 or channel > 7):
             raise IOException("Bad channel number")
         
         result = self.spi.xfer2(self.buildReadCommand(channel))
-        print result
         return self.processAdcValue(result)
         
         
