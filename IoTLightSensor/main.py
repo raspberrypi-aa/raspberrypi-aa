@@ -11,8 +11,9 @@ with open('credentials') as f:
 
 
 from MCP3008 import *  
+adcDevice = 0
 adcChannel = 0
-adc = MCP3008(channel=adcChannel)
+adc = MCP3008(device=adcDevice)
 @app.route("/")
 def index():
     return render_template('index.html',
