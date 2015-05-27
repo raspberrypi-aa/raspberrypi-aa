@@ -75,8 +75,10 @@
     {% if homePage %}
     <div class="row">
         <div class="col-md-6">
-            Light Level: {{light}}
-            <a class="btn btn-default" href="/testSMS" role="button">Send SMS</a>
+            Light Level: {{light}}<br/>
+            <a class="btn btn-default" href="/testSMS" role="button">Send SMS</a><br/>
+            <a class="btn btn-default" href="/startMotor" role="button">Start Motor</a><br/>
+            <a class="btn btn-default" href="/stopMotor" role="button">Stop Motor</a>
         </div>
     </div>
     {% endif %}
