@@ -2,22 +2,17 @@
 
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap        
-from MCP3008 import *
-from twilio.rest import TwilioRestClient, exceptions
-import json
-
-adc = MCP3008(0, 0)
 app = Flask(__name__, static_folder='static', static_url_path='')
-adcChannel = 0
+
+import json
 cred  = dict()
 with open('credentials') as f:
     cred = json.load(f)
 
 
-sms = TwilioRestClient(cred['account_sid'], cred['auth_token'])
-
-
-
+from MCP3008 import *  
+adcChannel = 0
+adc = MCP3008(channel=adcChannel)
 @app.route("/")
 def index():
     return render_template('index.html',
@@ -26,27 +21,24 @@ def index():
         light = adc.read(adcChannel))
     
     
+from twilio.rest import TwilioRestClient, exceptions
+sms = TwilioRestClient(cred['account_sid'], cred['auth_token'])    
 @app.route("/testSMS")
 def testSMS():
-        level = adc.read(adcChannel)
-    #try:
-        msg = sms.messages.create(to=cred['to_num'], 
-            from_ = cred['from_num'], 
-            body = "Light Level: "+str(level))
+    level = adc.read(adcChannel)
+    msg = sms.messages.create(to=cred['to_num'], 
+        from_ = cred['from_num'], 
+        body = "Light Level: "+str(level))
 
-        return render_template('index.html',
-            homePage = True,
-            page_title = "Home Page",
-            light = level,
-            successMsg = "Text Sent!")            
-            
-   # except exceptions.TwilioRestException:
-   #    return render_template('index.html',
-   #            homePage = True,
-   #         page_title = "Home Page",
-   #        light = level,
-   #         errorMsg = "Error sending text!")    
-    
+    return render_template('index.html',
+        homePage = True,
+        page_title = "Home Page",
+        light = level,
+        successMsg = "Text Sent!")            
+        
+@app.route("/startMotor")
+def 
+@app.route("/stopMotor")
 
 
 if __name__ == "__main__":
