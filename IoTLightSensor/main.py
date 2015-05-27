@@ -47,7 +47,11 @@ def startMotor():
 
 @app.route("/stopMotor")
 def stopMotor():
-    pass
+    return render_template('index.html',
+        homePage = True,
+        page_title = "Home Page",
+        light = level,
+        successMsg = "Text Sent!")         
 
 if __name__ == "__main__":
     try:
