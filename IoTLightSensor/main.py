@@ -36,22 +36,24 @@ def testSMS():
         page_title = "Home Page",
         light = level,
         successMsg = "Text Sent!")            
-        
+
+import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 motorPin = 18
 freq = 1000
 GPIO.setup(motorPin, GPIO.OUT, GPIO.LOW)
 motor = GPIO.PWM(motorPin, freq)
-
-
 @app.route("/startMotor")
 def startMotor():
     motor.start(0)
     for i in range(0, 100):
+        print i
         motor.ChangeDutyCycle(i)
         time.sleep(.01)
+        
     for i in range(100, 0, -1):
+        print i
         motor.ChangeDutyCycle(i)
         time.sleep(.01)
     motor.ChangeDutyCycle(100)
