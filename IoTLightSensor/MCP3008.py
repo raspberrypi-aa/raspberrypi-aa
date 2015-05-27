@@ -30,3 +30,14 @@ class MCP3008:
         return self.processAdcValue(result)
         
         
+if __name__ == "__main__":
+    import time
+    try:
+        spi = MCP3008(0,0)
+        while True:
+            print "ADC Value: " + spi.read(0)
+            time.sleep(.5)
+    except KeyboardInterrupt:
+        print "Exiting..."
+    finally:
+        spi.close()
