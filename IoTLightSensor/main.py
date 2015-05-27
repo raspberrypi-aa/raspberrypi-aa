@@ -43,7 +43,7 @@ def startMotor():
         homePage = True,
         page_title = "Home Page",
         light = level,
-        successMsg = "Text Sent!")     
+        successMsg = "Motor On")     
 
 @app.route("/stopMotor")
 def stopMotor():
@@ -51,7 +51,7 @@ def stopMotor():
         homePage = True,
         page_title = "Home Page",
         light = level,
-        successMsg = "Text Sent!")         
+        successMsg = "Motor Off")         
 
 if __name__ == "__main__":
     try:
