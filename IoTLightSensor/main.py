@@ -48,14 +48,12 @@ motor = GPIO.PWM(motorPin, freq)
 def startMotor():
     motor.start(0)
     for i in range(0, 100):
-        print i
         motor.ChangeDutyCycle(i)
-        time.sleep(.01)
+        time.sleep(.03)
         
     for i in range(100, 0, -1):
-        print i
         motor.ChangeDutyCycle(i)
-        time.sleep(.01)
+        time.sleep(.03)
     motor.ChangeDutyCycle(100)
         
     return render_template('index.html',
