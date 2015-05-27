@@ -82,6 +82,10 @@ def stopMotor():
         light = "Unknown",
         successMsg = "Motor Off")         
 
+
+#
+# Flask Boilerplate
+# 
 if __name__ == "__main__":
     try:
         app.debug = True
