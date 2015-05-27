@@ -37,9 +37,12 @@ def testSMS():
         successMsg = "Text Sent!")            
         
 @app.route("/startMotor")
-def 
-@app.route("/stopMotor")
+def startMotor():
+    pass
 
+@app.route("/stopMotor")
+def stopMotor():
+    pass
 
 if __name__ == "__main__":
     try:
@@ -50,9 +53,3 @@ if __name__ == "__main__":
     finally:
         adc.close()
         
-
-
-
-
-
-
