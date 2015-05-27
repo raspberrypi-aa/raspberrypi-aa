@@ -44,6 +44,8 @@ motorPin = 18
 freq = 1000
 GPIO.setup(motorPin, GPIO.OUT, GPIO.LOW)
 motor = GPIO.PWM(motorPin, freq)
+motor.stop()
+
 @app.route("/startMotor")
 def startMotor():
     motor.start(0)
