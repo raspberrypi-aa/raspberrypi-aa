@@ -10,6 +10,9 @@ with open('credentials') as f:
     cred = json.load(f)
 
 
+# 
+# Analog to Digital Converter Code
+#
 from MCP3008 import *  
 adcDevice = 0
 adcChannel = 0
@@ -22,6 +25,9 @@ def index():
         light = adc.read(adcChannel))
     
     
+#
+# SMS Sending Code
+#
 from twilio.rest import TwilioRestClient, exceptions
 sms = TwilioRestClient(cred['account_sid'], cred['auth_token'])    
 @app.route("/testSMS")
@@ -37,6 +43,9 @@ def testSMS():
         light = level,
         successMsg = "Text Sent!")            
 
+#
+# Motor Control Code
+# 
 import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
