@@ -37,8 +37,13 @@ def testSMS():
         light = level,
         successMsg = "Text Sent!")            
         
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+motorPin = 18
+GPIO.setup(motorPin, GPIO.OUT)
 @app.route("/startMotor")
 def startMotor():
+    GPIO.output(motorPin, 1)
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
@@ -47,6 +52,7 @@ def startMotor():
 
 @app.route("/stopMotor")
 def stopMotor():
+    GPIO.output(motorPin, 0)    
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
