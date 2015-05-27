@@ -30,7 +30,8 @@ class MCP3008:
             Results are between 0 and 1024
             
             Arguments:
-            -- channel: ADC channel to convert, bettween 0 and 7 inclusive)'''
+            -- channel: ADC channel to convert, bettween 0 and 7 inclusive)
+            '''
         if (channel < 0 or channel > 7):
             raise IOException("Bad channel number")
         
