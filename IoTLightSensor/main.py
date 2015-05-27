@@ -43,11 +43,11 @@ motorPin = 18
 freq = 1000
 GPIO.setup(motorPin, GPIO.OUT)
 motor = GPIO.PWM(motorPin, freq)
-motor.start()
+
 
 @app.route("/startMotor")
 def startMotor():
-    GPIO.output(motorPin, 1)
+    motor.start()
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
@@ -56,7 +56,7 @@ def startMotor():
 
 @app.route("/stopMotor")
 def stopMotor():
-    GPIO.output(motorPin, 0)    
+    motor.stop()
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
