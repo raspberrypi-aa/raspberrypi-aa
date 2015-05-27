@@ -42,7 +42,7 @@ def startMotor():
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
-        light = level,
+        light = "Unknown",
         successMsg = "Motor On")     
 
 @app.route("/stopMotor")
@@ -50,7 +50,7 @@ def stopMotor():
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
-        light = level,
+        light = "Unknown",
         successMsg = "Motor Off")         
 
 if __name__ == "__main__":
