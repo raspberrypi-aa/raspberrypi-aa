@@ -47,7 +47,15 @@ motor = GPIO.PWM(motorPin, freq)
 
 @app.route("/startMotor")
 def startMotor():
-    motor.start()
+    motor.start(0)
+    for i in range(0, 100):
+        motor.ChangeDutyCycle(i)
+        time.sleep(.01)
+    for i in range(100, 0, -1):
+        motor.ChangeDutyCycle(i)
+        time.sleep(.01)
+    motor.ChangeDutyCycle(100)
+        
     return render_template('index.html',
         homePage = True,
         page_title = "Home Page",
