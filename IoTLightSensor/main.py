@@ -39,7 +39,11 @@ def testSMS():
         
 @app.route("/startMotor")
 def startMotor():
-    pass
+    return render_template('index.html',
+        homePage = True,
+        page_title = "Home Page",
+        light = level,
+        successMsg = "Text Sent!")     
 
 @app.route("/stopMotor")
 def stopMotor():
