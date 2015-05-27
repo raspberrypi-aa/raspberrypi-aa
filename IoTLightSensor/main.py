@@ -28,7 +28,7 @@ def index():
     
 @app.route("/testSMS")
 def testSMS():
-    level = adc.read(adcChannel)
+        level = adc.read(adcChannel)
     #try:
         msg = sms.messages.create(to=cred['to_num'], 
             from_ = cred['from_num'], 
