@@ -19,7 +19,7 @@ def buildReadCommand(channel):
     startBit = 0x01
     singleEnded = 0x08
     
-    return [startBit, singleEnded|(channel<<4), 0]
+    return [startBit, (singleEnded|channel)<<4, 0]
     
 def processAdcValue(result):
     '''Take in result as array of three bytes. 
